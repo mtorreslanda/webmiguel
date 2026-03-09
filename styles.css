@@ -23,7 +23,7 @@ html {
 }
 
 body {
-    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -141,6 +141,7 @@ body {
 }
 
 .title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 3.5rem;
     font-weight: 300;
     letter-spacing: 4px;
