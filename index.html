@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miguel Torr. - Data Science</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -35,7 +36,7 @@
 
         <section id="formacion" class="section">
             <h2 class="section-title">Formación</h2>
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <div class="card-header">Máster en Data Science</div>
                 <div class="card-body">
                     <p class="card-text">Actualmente cursando</p>
@@ -47,19 +48,19 @@
         <section id="proyectos" class="section">
             <h2 class="section-title">Áreas de Interés</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
                     <h3>Machine Learning</h3>
                     <p>Desarrollo de modelos predictivos y algoritmos</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Análisis de Datos</h3>
                     <p>Procesamiento y visualización de datos complejos</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
                     <h3>Python & SQL</h3>
                     <p>Lenguajes principales para ciencia de datos</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
                     <h3>Inteligencia Artificial</h3>
                     <p>Redes neuronales y deep learning</p>
                 </div>
@@ -69,7 +70,7 @@
         <section id="contacto" class="section footer-section">
             <h2 class="section-title">Contacto</h2>
             <p class="contact-text">¿Interesado en colaborar? Ponte en contacto conmigo</p>
-            <div class="social-links">
+            <div class="social-links" data-aos="fade-up">
                 <a href="https://www.linkedin.com/in/miguel-angel-castro-torreslanda" target="_blank" class="social-btn">LinkedIn</a>
                 <a href="https://github.com/mtorreslanda" target="_blank" class="social-btn">GitHub</a>
                 <a href="mailto:mtorreslanda@gmail.com" class="social-btn">Email</a>
@@ -80,5 +81,13 @@
     <footer class="footer">
         <p>&copy; 2026 MACT Todos los derechos reservados.</p>
     </footer>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+</script>
 </body>
 </html>
