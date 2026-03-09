@@ -58,6 +58,25 @@ let scrollSuaveText  = 0;
 
 
 // ============================================
+// PROYECTOS — SCROLL HORIZONTAL
+// ============================================
+const sectionProjects = document.querySelector('.section-projects');
+const projectsTrack   = document.querySelector('.projects-track');
+
+let trackX = 0;
+let trackXTarget = 0;
+
+// Calcula el height exacto que necesita la sección
+function calcularAlturaProjects() {
+  const trackAncho = projectsTrack.scrollWidth - window.innerWidth + 128;
+  sectionProjects.style.height = (window.innerHeight + trackAncho) + 'px';
+}
+
+calcularAlturaProjects();
+window.addEventListener('resize', calcularAlturaProjects);
+
+
+// ============================================
 // UN SOLO LOOP — todo junto, cada frame
 // ============================================
 function loop() {
@@ -87,6 +106,23 @@ function loop() {
     aboutPhotoWrapper.style.transform = `translateY(${-scrollSuavePhoto * 0.7 + 600}px)`;
     aboutTextCol.style.transform      = `translateY(${-scrollSuaveText  * 0.08}px)`;
   }
+
+
+  // — Proyectos scroll horizontal —
+  const rectProjects = sectionProjects.getBoundingClientRect();
+
+  if (rectProjects.top <= 0 && rectProjects.bottom >= window.innerHeight) {
+    const scrollDentro = -rectProjects.top;
+    const maxScroll = sectionProjects.offsetHeight - window.innerHeight;
+    const trackAncho = projectsTrack.scrollWidth - window.innerWidth + 128;
+    const progreso = scrollDentro / maxScroll;
+
+    trackXTarget = -(progreso * trackAncho);
+  }
+
+  trackX += (trackXTarget - trackX) * 0.06;
+  projectsTrack.style.transform = `translateX(${trackX}px)`;
+
 
   requestAnimationFrame(loop);
 }

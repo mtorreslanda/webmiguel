@@ -194,7 +194,7 @@ body {
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.75rem;
+  font-size: 2rem;
   letter-spacing: 0.2em;
   color: var(--color-gris-texto);
   animation: bounce 2s infinite;
@@ -205,10 +205,11 @@ body {
    ============================================ */
 .section-about {
   position: relative;
-  min-height: 160vh;
+  min-height: auto;
   background-color: var(--color-blanco);
   padding: 8rem 4rem;
 }
+
 
 .about-counter {
   font-size: 0.75rem;
@@ -254,7 +255,7 @@ body {
   left: 4rem;      /* mismo padding que la sección */
   width: 380px;
   height: 480px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .about-photo {
@@ -318,6 +319,224 @@ body {
   text-transform: uppercase;
   padding: 0.4rem 1rem;
   border: 1px solid var(--color-negro);
+}
+
+
+/* ============================================
+   PROYECTOS — SCROLL HORIZONTAL
+   ============================================ */
+
+.section-projects {
+  height: auto; /* Alta para "atrapar" el scroll vertical */
+  background-color: var(--color-crema);
+  position: relative;
+}
+
+.section-projects::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, var(--color-blanco), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+.projects-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden; /* El track se mueve pero no desborda */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+}
+
+.projects-header {
+  margin-bottom: 3rem;
+}
+
+.projects-counter {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--color-gris-texto);
+  margin-bottom: 0.75rem;
+}
+
+.projects-title {
+  font-family: var(--font-titulo);
+  font-size: clamp(2rem, 6vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.projects-track {
+  display: flex;
+  gap: 2.5rem;
+  will-change: transform; /* El JS va a mover esto */
+}
+
+/* ---- TARJETA ---- */
+.project-card {
+  flex-shrink: 0;
+  width: 750px;          /* Ancha como ficha */
+  height: 340px;         /* Altura fija — proporción horizontal */
+  background-color: var(--color-blanco);
+  position: relative;
+  display: flex;         /* Imagen izquierda, texto derecha */
+  flex-direction: row;
+}
+
+/* Peso físico — borde desplazado igual que la foto del About */
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--color-negro);
+  z-index: 0;
+  transition: bottom 0.3s ease, right 0.3s ease;
+}
+
+.project-card:hover::after {
+  bottom: -6px;
+  right: -6px;
+}
+
+/* ---- IMAGEN ---- */
+.project-img-wrapper {
+  width: 320px;          /* Mitad izquierda */
+  height: 100%;          /* Ocupa toda la altura de la tarjeta */
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.04);
+  filter: grayscale(0%);
+}
+
+/* ---- CUERPO ---- */
+.project-body {
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el texto verticalmente */
+}
+
+.project-num {
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--color-gris-texto);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.project-name {
+  font-family: var(--font-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-gris-texto);
+  margin-bottom: 1.25rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--color-negro);
+}
+
+.project-link {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-negro);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-negro);
+  padding-bottom: 0.15rem;
+  transition: opacity 0.3s ease;
+}
+
+.project-link:hover {
+  opacity: 0.4;
+}
+
+/* ============================================
+   SKILLS — ESQUELETO
+   ============================================ */
+.section-skills {
+  min-height: 100vh;
+  background-color: var(--color-crema);
+  padding: 8rem 4rem;
+}
+
+.skills-counter {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--color-gris-texto);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.skills-title {
+  font-family: var(--font-titulo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  padding: 1rem 2rem;
+  border: 1px solid var(--color-negro);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 @keyframes bounce {
