@@ -1,96 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miguel Torr. - Data Science</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miguel Torres — Data Scientist</title>
+
+  <!-- Preconexión a Google Fonts (acelera la carga) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- DM Sans — ya aprobada para cuerpo -->
+  <!-- Playfair Display — para títulos grandes, elegante pero no decorativa -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- AOS — scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <div class="nav-content">
-                <span class="logo">MT</span>
-                <ul class="nav-links">
-                    <li><a href="#perfil">Perfil</a></li>
-                    <li><a href="#formacion">Formación</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </nav>
 
-        <section id="perfil" class="hero">
-            <div class="hero-content">
-                <img src="profile.jpeg" alt="Miguel Torres" class="profile-img">
-                <h1 class="title">Miguel Angel Castro Torreslanda</h1>
-                <p class="subtitle">Estudiante de Máster en Data Science</p>
-                <p class="description">Apasionado por la inteligencia artificial y el análisis de datos. Explorando nuevas formas de extraer valor de los datos.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Descargar CV</button>
-                    <button class="btn btn-secondary">Conectar</button>
-                </div>
-            </div>
-        </section>
+  <!-- CURSOR PERSONALIZADO -->
+  <div class="cursor-ring"></div>
+  
+  <!-- NAVEGACIÓN -->
+  <nav class="nav">
+    <span class="nav-logo">MT—</span>
+    <div class="nav-links">
+      <a href="#sobre-mi">About</a>
+      <a href="#proyectos">Works</a>
+      <a href="#contacto">Contact</a>
+    </div>
+  </nav>
 
-        <section id="formacion" class="section">
-            <h2 class="section-title">Formación</h2>
-            <div class="card" data-aos="fade-up">
-                <div class="card-header">Máster en Data Science</div>
-                <div class="card-body">
-                    <p class="card-text">Actualmente cursando</p>
-                    <p class="card-meta">Especializado en Machine Learning, Análisis de Datos e Inteligencia Artificial</p>
-                </div>
-            </div>
-        </section>
+  <!-- 01 HERO -->
+  <section id="hero" class="section-hero">
 
-        <section id="proyectos" class="section">
-            <h2 class="section-title">Áreas de Interés</h2>
-            <div class="skills-grid">
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
-                    <h3>Machine Learning</h3>
-                    <p>Desarrollo de modelos predictivos y algoritmos</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Análisis de Datos</h3>
-                    <p>Procesamiento y visualización de datos complejos</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Python & SQL</h3>
-                    <p>Lenguajes principales para ciencia de datos</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Inteligencia Artificial</h3>
-                    <p>Redes neuronales y deep learning</p>
-                </div>
-            </div>
-        </section>
+  <!-- CAPA 1: Imagen de fondo (se mueve lento con parallax) -->
+  <div class="hero-bg"></div>
 
-        <section id="contacto" class="section footer-section">
-            <h2 class="section-title">Contacto</h2>
-            <p class="contact-text">¿Interesado en colaborar? Ponte en contacto conmigo</p>
-            <div class="social-links" data-aos="fade-up">
-                <a href="https://www.linkedin.com/in/miguel-angel-castro-torreslanda" target="_blank" class="social-btn">LinkedIn</a>
-                <a href="https://github.com/mtorreslanda" target="_blank" class="social-btn">GitHub</a>
-                <a href="mailto:mtorreslanda@gmail.com" class="social-btn">Email</a>
-            </div>
-        </section>
+  <!-- CAPA 2: Doodle decorativo (placeholder por ahora) -->
+  <div class="hero-doodle">
+    <img src="animacion1.gif" alt="">
+  </div>
+
+  <!-- CAPA 3: Contenido (se mueve rápido — el efecto Shiroito) -->
+  <div class="hero-content">
+
+    <div class="hero-counter">01 / 05</div>
+
+    <h1 class="hero-title">
+      <span class="hero-title-line1">MIGUEL</span>
+      <span class="hero-title-line2">A. CASTRO</span>
+    </h1>
+
+    <p class="hero-subtitle">Data Scientist & Developer</p>
+
+    <div class="hero-scroll-hint">↓ scroll</div>
+
+  </div>
+
+</section>
+
+  <!-- 02 SOBRE MÍ -->
+  <section id="sobre-mi" class="section-about">
+
+  <div class="about-counter">02 / 05</div>
+
+  <div class="about-inner">
+
+    <!-- Columna izquierda — foto -->
+    <div class="about-photo-col">
+        <!-- Ghost — invisible, solo reserva el espacio -->
+        <div class="about-photo-ghost"></div>
     </div>
 
-    <footer class="footer">
-        <p><span class="logo">MT</span></p>
-    </footer>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
-</script>
+    <!-- Columna derecha — texto -->
+    <div class="about-text-col">
+
+      <h2 class="about-title" data-aos="fade-up">Miguel Torres</h2>
+
+      <div class="about-meta" data-aos="fade-up" data-aos-delay="100">
+        <span>Ciudad de México — Madrid</span>
+        <span>Data Scientist & Developer</span>
+      </div>
+
+      <p class="about-bio" data-aos="fade-up" data-aos-delay="200">
+        Abogado, economista y doctor en formación convertido en científico de datos.
+        Estudié Derecho y Economía en el ITAM, una Maestría en Derechos Humanos
+        en doble grado ITAM–Universidad de Génova, y un Doctorado en la UP —
+        actualmente en proceso de titulación. Hoy curso la Maestría en Data Science,
+        Big Data y Business Analytics en la Universidad Complutense de Madrid.
+      </p>
+
+      <p class="about-bio" data-aos="fade-up" data-aos-delay="300">
+        Me apasionan los datos, el diseño y la programación. Este año tengo en la
+        mira el Big Data Bowl. Creo que el análisis de datos bien aplicado puede
+        cambiar la forma en que entendemos el mundo — desde el deporte hasta
+        los derechos humanos.
+      </p>
+
+      <div class="about-tags" data-aos="fade-up" data-aos-delay="400">
+        <span>Python</span>
+        <span>SQL</span>
+        <span>Machine Learning</span>
+        <span>Big Data</span>
+        <span>Derecho</span>
+        <span>Diseño</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="about-photo-wrapper">
+    <img src="profile.jpeg" alt="Miguel Torres" class="about-photo">
+  </div>
+
+</section>
+
+  <!-- 03 PROYECTOS -->
+  <section id="proyectos" class="section-projects">
+
+  <div class="projects-sticky">
+
+    <div class="projects-header">
+      <div class="projects-counter">03 / 05</div>
+      <h2 class="projects-title">Works</h2>
+    </div>
+
+    <div class="projects-track">
+
+      <!-- TARJETA 1 -->
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Proyecto 1" class="project-img">
+        </div>
+        <div class="project-body">
+          <span class="project-num">01</span>
+          <h3 class="project-name">Big Data Bowl</h3>
+          <p class="project-desc">Análisis de tracking data NFL para predecir yards after contact usando modelos de machine learning.</p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>ML</span>
+            <span>NFL</span>
+          </div>
+          <a href="#" class="project-link">Ver proyecto →</a>
+        </div>
+      </article>
+
+      <!-- TARJETA 2 -->
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800" alt="Proyecto 2" class="project-img">
+        </div>
+        <div class="project-body">
+          <span class="project-num">02</span>
+          <h3 class="project-name">Derechos & Datos</h3>
+          <p class="project-desc">Dashboard interactivo para visualizar violaciones de derechos humanos con fuentes abiertas y NLP.</p>
+          <div class="project-tags">
+            <span>SQL</span>
+            <span>NLP</span>
+            <span>Viz</span>
+          </div>
+          <a href="#" class="project-link">Ver proyecto →</a>
+        </div>
+      </article>
+
+      <!-- TARJETA 3 -->
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800" alt="Proyecto 3" class="project-img">
+        </div>
+        <div class="project-body">
+          <span class="project-num">03</span>
+          <h3 class="project-name">Portafolio Web</h3>
+          <p class="project-desc">Este mismo sitio — diseñado desde cero con HTML, CSS y JS vanilla. Concepto Field Notes.</p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JS</span>
+          </div>
+          <a href="#" class="project-link">Ver proyecto →</a>
+        </div>
+      </article>
+
+    </div><!-- /projects-track -->
+
+  </div><!-- /projects-sticky -->
+
+</section>
+
+  <!-- 04 SKILLS -->
+  <section id="skills" class="section-skills">
+  </section>
+
+  <!-- 05 CONTACTO -->
+  <section id="contacto" class="section-contact">
+  </section>
+
+  <!-- Scripts al final, antes de cerrar body -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
