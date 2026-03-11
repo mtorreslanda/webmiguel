@@ -15,6 +15,7 @@ document.addEventListener('mousemove', (e) => {
   mouseY = e.clientY;
 });
 
+const seccionContacto = document.querySelector('.section-contact');
 
 // ============================================
 // NAV — logo se encoge al scrollear
@@ -35,6 +36,7 @@ window.addEventListener('scroll', () => {
 // ============================================
 const heroBg      = document.querySelector('.hero-bg');
 const heroContent = document.querySelector('.hero-content');
+const heroScrollHint = document.querySelector('.hero-scroll-hint');
 
 let scrollActual = 0;
 let scrollSuave  = 0;
@@ -45,6 +47,16 @@ window.addEventListener('scroll', () => {
   scrollActual = window.scrollY;
 });
 
+
+// ============================================
+// SCROLL HINT — click lleva a About
+// ============================================
+const seccionAbout = document.querySelector('.section-about');
+const scrollHint = document.querySelector('.hero-scroll-hint');
+
+scrollHint.addEventListener('click', () => {
+  seccionAbout.scrollIntoView({ behavior: 'smooth' });
+});
 
 // ============================================
 // PARALLAX ABOUT
@@ -76,6 +88,7 @@ calcularAlturaProjects();
 window.addEventListener('resize', calcularAlturaProjects);
 
 
+
 // ============================================
 // UN SOLO LOOP — todo junto, cada frame
 // ============================================
@@ -90,11 +103,20 @@ function loop() {
 
   cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
 
+  // — Color cursor según sección —
+  const rectContacto = seccionContacto.getBoundingClientRect();
+  if (rectContacto.top < window.innerHeight * 0.5) {
+  cursorRing.style.borderColor = 'rgba(255, 255, 255, 0.8)';
+  } else {
+  cursorRing.style.borderColor = 'var(--color-negro)';
+  } 
+
   // — Parallax —
   scrollSuave += (scrollActual - scrollSuave) * velocidadScroll;
 
   heroBg.style.transform      = `translateY(${scrollActual * 0.4}px)`;
   heroContent.style.transform = `translateY(${scrollSuave * -0.8}px)`;
+  heroScrollHint.style.transform = `translateY(${scrollSuave * -0.8}px)`;
   
 
    // — Parallax About —
@@ -137,3 +159,28 @@ AOS.init({
   easing: 'ease-out',
   once: true  // La animación ocurre solo la primera vez
 });
+
+
+
+// ============================================
+// SKILLS — ANIMACIÓN DE ENTRADA
+// ============================================
+const skillRows = document.querySelectorAll('.skill-row');
+
+const observadorSkills = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const index = Array.from(skillRows).indexOf(entry.target);
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 80);
+      observadorSkills.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: .17
+});
+
+skillRows.forEach(row => observadorSkills.observe(row));
+
+

@@ -25,10 +25,11 @@
   
   <!-- NAVEGACIÓN -->
   <nav class="nav">
-    <span class="nav-logo">MT—</span>
+    <a href="#hero" class="nav-logo">MT—</a>
     <div class="nav-links">
       <a href="#sobre-mi">About</a>
       <a href="#proyectos">Works</a>
+      <a href="#skills">Skills</a>
       <a href="#contacto">Contact</a>
     </div>
   </nav>
@@ -59,6 +60,8 @@
     <div class="hero-scroll-hint">↓ scroll</div>
 
   </div>
+
+  
 
 </section>
 
@@ -269,25 +272,99 @@
 
   <!-- 04 SKILLS -->
 <section id="skills" class="section-skills">
-  <div class="skills-counter">04 / 05</div>
-  <h2 class="skills-title">Skills</h2>
 
-  <div class="skills-grid">
-    <div class="skill-item"><span>Python</span></div>
-    <div class="skill-item"><span>SQL</span></div>
-    <div class="skill-item"><span>Machine Learning</span></div>
-    <div class="skill-item"><span>Big Data</span></div>
-    <div class="skill-item"><span>NLP</span></div>
-    <div class="skill-item"><span>Data Viz</span></div>
-    <div class="skill-item"><span>Blender</span></div>
-    <div class="skill-item"><span>Procreate</span></div>
-    <div class="skill-item"><span>HTML / CSS</span></div>
+  <!-- Columna izquierda — sticky -->
+  <div class="skills-left">
+    <div class="skills-counter">04 / 05</div>
+    <h2 class="skills-title">Skills</h2>
+    <p class="skills-tagline">Herramientas con las<br>que trabajo a diario.</p>
   </div>
+
+  <!-- Columna derecha — items animados -->
+  <div class="skills-right">
+
+    <div class="skill-row" data-skill="Python">
+      <span class="skill-index">01</span>
+      <span class="skill-name">Python</span>
+      <span class="skill-category">Data / ML</span>
+    </div>
+
+    <div class="skill-row" data-skill="SQL">
+      <span class="skill-index">02</span>
+      <span class="skill-name">SQL</span>
+      <span class="skill-category">Datos</span>
+    </div>
+
+    <div class="skill-row" data-skill="Machine Learning">
+      <span class="skill-index">03</span>
+      <span class="skill-name">Machine Learning</span>
+      <span class="skill-category">Modelado</span>
+    </div>
+
+    <div class="skill-row" data-skill="Deep Learning">
+      <span class="skill-index">04</span>
+      <span class="skill-name">Deep Learning</span>
+      <span class="skill-category">Modelado</span>
+    </div>
+
+    <div class="skill-row" data-skill="NLP">
+      <span class="skill-index">05</span>
+      <span class="skill-name">NLP</span>
+      <span class="skill-category">Lenguaje</span>
+    </div>
+
+    <div class="skill-row" data-skill="Big Data">
+      <span class="skill-index">06</span>
+      <span class="skill-name">Big Data</span>
+      <span class="skill-category">Infraestructura</span>
+    </div>
+
+    <div class="skill-row" data-skill="Spark / Hadoop">
+      <span class="skill-index">07</span>
+      <span class="skill-name">Spark / Hadoop</span>
+      <span class="skill-category">Infraestructura</span>
+    </div>
+
+    <div class="skill-row" data-skill="HTML / CSS / JS">
+      <span class="skill-index">08</span>
+      <span class="skill-name">HTML / CSS / JS</span>
+      <span class="skill-category">Dev</span>
+    </div>
+
+    <div class="skill-row" data-skill="Git / GitHub">
+      <span class="skill-index">09</span>
+      <span class="skill-name">Git / GitHub</span>
+      <span class="skill-category">Dev</span>
+    </div>
+  </div>  
 </section>
 
   <!-- 05 CONTACTO -->
-  <section id="contacto" class="section-contact">
-  </section>
+<section id="contacto" class="section-contact">
+
+  <div class="contact-counter">05 / 05</div>
+
+  <div class="contact-inner">
+
+    <p class="contact-label">¿Tienes un proyecto en mente?</p>
+
+    <a href="mailto:migcastr@ucm.es" class="contact-email">
+      migcastr@ucm.es
+    </a>
+
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/miguel-angel-castro-torreslanda" target="_blank" class="contact-link">LinkedIn ↗</a>
+      <a href="https://github.com/mtorreslanda" target="_blank" class="contact-link">GitHub ↗</a>
+    </div>
+
+  </div>
+
+  <div class="contact-footer">
+    <span>Miguel A. Castro Torreslanda — 2025</span>
+    <span>Madrid, España</span>
+  </div>
+
+</section>
 
   <!-- Scripts al final, antes de cerrar body -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
