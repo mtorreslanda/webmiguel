@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo GovTech TFM — UCM Big Data & Data Science 2025</title>
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #1a1a1a;
+  background: #ffffff;
+  display: flex;
+}
+
+/* ── SIDEBAR ── */
+#sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: #f5f5f5;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  overflow-y: auto;
+  padding: 16px 0;
+  font-size: 13px;
+}
+#sidebar h2 {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  padding: 12px 16px 4px;
+  margin-top: 8px;
+}
+#sidebar h2:first-child { margin-top: 0; }
+#sidebar a {
+  display: block;
+  padding: 5px 16px;
+  color: #333;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+#sidebar a:hover { background: #e8e8e8; border-left-color: #aaa; }
+.nav-title {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 16px 4px;
+  color: #1a1a1a;
+  border-top: 1px solid #ddd;
+  margin-top: 4px;
+}
+.nav-title:first-child { border-top: none; margin-top: 0; }
+
+/* ── MAIN ── */
+#main {
+  margin-left: 260px;
+  flex: 1;
+  padding: 32px 48px;
+  max-width: 960px;
+}
+
+/* ── TYPOGRAPHY ── */
+h1 { font-size: 26px; margin-bottom: 8px; }
+h2 { font-size: 20px; margin: 32px 0 12px; border-bottom: 2px solid #1a1a1a; padding-bottom: 4px; }
+h3 { font-size: 16px; margin: 24px 0 8px; }
+h4 { font-size: 14px; margin: 16px 0 6px; font-weight: bold; color: #444; }
+p { margin-bottom: 10px; }
+p:last-child { margin-bottom: 0; }
+ul, ol { padding-left: 20px; margin-bottom: 10px; }
+li { margin-bottom: 4px; }
+strong { font-weight: bold; }
+
+/* ── IDEA CARD ── */
+.idea-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  background: #fff;
+}
+.idea-card-header {
+  padding: 16px 20px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.idea-card-header h3 { margin: 0 0 4px; font-size: 17px; }
+.idea-card-header .subtitle { font-size: 13px; color: #555; }
+.idea-card-body { padding: 20px; }
+
+/* ── ESTADO BADGES ── */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.badge-green { background: #d4edda; color: #155724; }
+.badge-amber { background: #fff3cd; color: #856404; }
+.badge-red   { background: #f8d7da; color: #721c24; }
+.badge-blue  { background: #cce5ff; color: #004085; }
+
+/* ── FIELD BLOCKS ── */
+.field {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: #f9f9f9;
+  border-left: 4px solid #ccc;
+}
+.field-label {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #666;
+  margin-bottom: 6px;
+}
+.field-content { font-size: 14px; }
+.field.green  { border-left-color: #28a745; }
+.field.blue   { border-left-color: #007bff; }
+.field.amber  { border-left-color: #ffc107; }
+.field.red    { border-left-color: #dc3545; }
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+th {
+  background: #333;
+  color: #fff;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #f9f9f9; }
+
+/* ── SUMMARY TABLE (overview) ── */
+.status-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.dot-green { background: #28a745; }
+.dot-amber { background: #ffc107; }
+.dot-red   { background: #dc3545; }
+
+/* ── STATS ROW ── */
+.stats-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.stat-box {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 16px;
+  min-width: 120px;
+}
+.stat-num { font-size: 26px; font-weight: bold; color: #1a1a1a; }
+.stat-lbl { font-size: 12px; color: #666; }
+
+/* ── MOCKUP FRAME ── */
+.mockup-frame {
+  border: 1px solid #999;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.mockup-bar {
+  background: #333;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+.mockup-url { flex: 1; font-size: 11px; color: #aaa; font-family: monospace; margin-left: 8px; }
+
+/* ── SECTION DIVIDER ── */
+.section-divider {
+  border: none;
+  border-top: 3px solid #333;
+  margin: 40px 0 24px;
+}
+
+/* ── DISCARD CARD ── */
+.discard-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 5px solid #dc3545;
+}
+.discard-header {
+  padding: 12px 16px;
+  background: #fff8f8;
+  border-bottom: 1px solid #ccc;
+}
+.discard-header h4 { margin: 0; font-size: 15px; }
+.discard-body { padding: 14px 16px; font-size: 14px; }
+
+/* ── AI SUMMARY SECTION ── */
+#ai-summary {
+  background: #fffde7;
+  border: 2px solid #f9a825;
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+#ai-summary h2 { border-bottom-color: #f9a825; font-size: 17px; margin-top: 0; }
+#ai-summary pre {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 12px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* ── PRINT ── */
+@media print {
+  #sidebar { display: none; }
+  #main { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════════ -->
+<nav id="sidebar">
+  <div class="nav-title">📋 Resumen</div>
+  <a href="#ai-summary">Resumen para IA</a>
+  <a href="#metodologia">Metodología</a>
+  <a href="#tabla-resumen">Tabla comparativa</a>
+
+  <div class="nav-title">🏆 Ideas Principales (12)</div>
+  <a href="#idea-01">01 · Anomalías contratación</a>
+  <a href="#idea-02">02 · Orientación laboral SEPE</a>
+  <a href="#idea-03">03 · Pisos turísticos ilegales</a>
+  <a href="#idea-04">04 · Salud financiera municipal</a>
+  <a href="#idea-05">05 · Tramitador licencias IA</a>
+  <a href="#idea-06">06 · Transporte rural</a>
+  <a href="#idea-07">07 · Morosidad pagos públicos</a>
+  <a href="#idea-08">08 · Demanda servicios sociales</a>
+  <a href="#idea-09">09 · Riesgo desahucio</a>
+  <a href="#idea-10">10 · Inspecciones sanidad</a>
+  <a href="#idea-11">11 · Fugas red agua</a>
+  <a href="#idea-12">12 · Eficiencia energética edificios</a>
+
+  <div class="nav-title">💡 Ideas Out-of-the-Box (15)</div>
+  <a href="#oob-01">OOB-01 · Éxito electoral políticas</a>
+  <a href="#oob-02">OOB-02 · Detector gentrificación</a>
+  <a href="#oob-03">OOB-03 · Índice bienestar municipal</a>
+  <a href="#oob-04">OOB-04 · Simulador fiscal municipal</a>
+  <a href="#oob-05">OOB-05 · Infraestructuras y despoblación</a>
+  <a href="#oob-06">OOB-06 · Asistente redacción pliegos</a>
+  <a href="#oob-07">OOB-07 · Litigiosidad administrativa</a>
+  <a href="#oob-08">OOB-08 · Solares abandonados CV+satélite</a>
+  <a href="#oob-09">OOB-09 · Brecha género gasto público</a>
+  <a href="#oob-10">OOB-10 · Gemelo digital tráfico</a>
+  <a href="#oob-11">OOB-11 · Calidad normativa municipal</a>
+  <a href="#oob-12">OOB-12 · Cultura y desarrollo económico</a>
+  <a href="#oob-13">OOB-13 · Siniestralidad vial</a>
+  <a href="#oob-14">OOB-14 · Vulnerabilidad climática</a>
+  <a href="#oob-15">OOB-15 · Contaminación lumínica</a>
+
+  <div class="nav-title">❌ Descartadas</div>
+  <a href="#desc-incendios">Incendios forestales</a>
+  <a href="#desc-alquiler">Monitor precios alquiler</a>
+  <a href="#desc-semaforos">Optimización semáforos</a>
+  <a href="#desc-economia-sumergida">Economía sumergida</a>
+  <a href="#desc-abandono-escolar">Abandono escolar (datos)</a>
+  <a href="#desc-redes-sociales">Sentimiento redes sociales</a>
+  <a href="#desc-vial">Mantenimiento vial</a>
+  <a href="#desc-urgencias">Urgencias hospitalarias</a>
+  <a href="#desc-pliegos-ia">Redacción pliegos IA</a>
+  <a href="#desc-siniestralidad">Siniestralidad DGT</a>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════ -->
+<main id="main">
+
+<h1>Catálogo de Ideas GovTech</h1>
+<p style="color:#555; font-size:14px;">TFM · Máster Big Data, Data Science &amp; Business Analytics · UCM · 2025<br>
+Equipo de 6 personas · Plazo: 6 meses · Orientación: Data Science (opción 1 TFM)</p>
+
+<!-- ══ AI SUMMARY SECTION ══ -->
+<div id="ai-summary">
+<h2>🤖 Resumen estructurado para IA / sesiones futuras</h2>
+<p style="font-size:13px; margin-bottom:12px;">Esta sección condensa el estado actual del proyecto en formato estructurado. Si estás leyendo este documento en una sesión nueva, esta sección te da el contexto completo rápidamente.</p>
+<pre>
+PROYECTO: TFM Big Data UCM 2025
+EQUIPO: 6 personas | PLAZO: 6 meses | MODALIDAD: Grupal
+GUÍA TFM: Opción 1 (Data Science) — requiere EDA, modelos ML, interpretabilidad, productivización via API
+
+ESTADO DE EXPLORACIÓN:
+Se han evaluado 12 ideas principales + 15 out-of-the-box + 10 descartadas.
+Criterios de evaluación: (1) Problema real documentado, (2) Gap en España verificado,
+(3) Datos disponibles y accesibles, (4) Viabilidad en 6 meses con equipo de 6.
+
+IDEAS PRINCIPALES — ESTADO DE COMPETENCIA (verificado mayo 2026):
+ID  | Nombre                              | Comp. España     | Datos | Recomendación
+----|-------------------------------------|------------------|-------|---------------
+01  | Anomalías contratación pública      | PARCIAL (Tendios) | 19/20 | ALTA - diferenciarse en ángulo supervisor
+02  | Orientación laboral SEPE            | EXISTE (EMi Galicia) | 14/20 | MEDIA - SaaS para resto de CCAA
+03  | Pisos turísticos ilegales           | GAP LIBRE        | 15/20 | MUY ALTA - timing perfecto jul-2025
+04  | Salud financiera municipal          | GAP LIBRE        | 17/20 | MUY ALTA - datos desde 2010
+05  | Tramitador licencias IA             | COMPETENCIA ALTA | 12/20 | BAJA - HP, Gobierto, integradoras
+06  | Transporte rural                    | GAP LIBRE        | 13/20 | ALTA - urgencia política
+07  | Morosidad pagos públicos            | GAP LIBRE        | 17/20 | ALTA - datos PMP públicos
+08  | Demanda servicios sociales          | GAP LIBRE        | 12/20 | MEDIA - solo datos agregados
+09  | Riesgo desahucio                    | GAP LIBRE        | 13/20 | ALTA - CGPJ publica datos
+10  | Inspecciones sanidad                | PARCIAL          | 10/20 | MEDIA - requiere convenio CCAA
+11  | Fugas red agua                      | PARCIAL          | 8/20  | MEDIA - requiere datos sensores
+12  | Eficiencia energética edificios     | GAP LIBRE        | 13/20 | ALTA - datos IDAE + Catastro
+
+IDEAS OUT-OF-THE-BOX — ESTADO (verificado mayo 2026):
+OOB-01 | Éxito electoral políticas públicas  | GAP TOTAL     | CIS datos abiertos | ORIGINAL
+OOB-02 | Detector gentrificación             | PARCIAL (académico) | INE+Catastro | VIABLE
+OOB-03 | Índice bienestar municipal          | GAP (INE solo CCAA) | INE múltiple | ORIGINAL
+OOB-04 | Simulador fiscal municipal          | GAP TOTAL     | Hacienda+Portal RdC | MUY ORIGINAL
+OOB-05 | Infraestructuras y despoblación     | GAP TOTAL     | INE+MITMA histórico | ORIGINAL
+OOB-06 | Asistente redacción pliegos         | DESCARTADA (Gobierto) | - | DESCARTADA
+OOB-07 | Litigiosidad administrativa         | GAP TOTAL     | CGPJ estadísticas | ORIGINAL
+OOB-08 | Solares abandonados CV+satélite     | GAP LIBRE     | Copernicus+Catastro | MUY ORIGINAL
+OOB-09 | Brecha género gasto público         | PARCIAL (manual) | PGE+Hacienda | VIABLE
+OOB-10 | Gemelo digital tráfico obras        | PARCIAL (solo grandes ciudades) | OSM+DGT | VIABLE
+OOB-11 | Calidad normativa municipal NLP     | GAP TOTAL     | BOE+BOPROV | ORIGINAL
+OOB-12 | Cultura y desarrollo económico      | GAP TOTAL     | MinCultura+INE | ORIGINAL
+OOB-13 | Siniestralidad vial por tramo       | DESCARTADA (DGT 3.0) | - | DESCARTADA
+OOB-14 | Vulnerabilidad climática municipal  | GAP (falta integración) | SNCZI+AEMET | VIABLE
+OOB-15 | Contaminación lumínica satélite     | PARCIAL (académico) | NASA VIIRS | VIABLE
+
+TOP 5 IDEAS POR COMBINACIÓN PROBLEMA+DATOS+GAP:
+1. Anomalías contratación pública (01) — datos perfectos, cliente explícito (OIReScon)
+2. Salud financiera municipal (04) — datos desde 2010, sin competencia, ML rico
+3. Pisos turísticos ilegales (03) — timing único, ley nueva jul-2025, modelo Deckard
+4. Morosidad pagos públicos (07) — datos PMP públicos, doble cliente B2G+B2B
+5. Solares abandonados CV+satélite (OOB-08) — CV+ML, Copernicus gratis, vivienda urgente
+
+COMPETIDORES CLAVE IDENTIFICADOS:
+- Tendios (Barcelona, 2022, 2M€ jun-2025): IA en contratación, ~100 clientes institucionales
+- Gobierto Contratación: búsqueda licitaciones + redacción pliegos con IA
+- EMi/SPEG (Xunta Galicia): orientación laboral IA, premio CE nov-2024
+- HP FlowMaster (León, may-2026): tramitación licencias con IA
+- Ministerio Consumo: detecta VUT ilegales manualmente (sin SaaS)
+- DGT 3.0: análisis tramos peligrosos (espacio cerrado)
+
+PRÓXIMOS PASOS SUGERIDOS:
+- Elegir 1-2 ideas para desarrollar como propuesta de TFM
+- Definir stack técnico, fuentes de datos concretas y MVP
+- Preparar pitch de 10 min para primera reunión con tutores
+</pre>
+</div>
+
+<!-- ══ METODOLOGÍA ══ -->
+<div id="metodologia">
+<h2>Metodología de evaluación</h2>
+<p>Cada idea ha sido evaluada contra cuatro criterios para que sirva tanto como TFM como como producto real vendible al gobierno español.</p>
+<table>
+  <tr><th>Criterio</th><th>Descripción</th></tr>
+  <tr><td><strong>Problema real</strong></td><td>¿Existe evidencia documentada de impacto cuantificable? Se priorizan cifras oficiales de organismos españoles o europeos.</td></tr>
+  <tr><td><strong>Gap en España</strong></td><td>¿Existe ya una solución equivalente? Se ha investigado el mercado español, startups activas y herramientas gubernamentales.</td></tr>
+  <tr><td><strong>Datos disponibles</strong></td><td>¿Hay datos suficientes, accesibles y de calidad para el modelo? Evaluado en escala de 0-20 por volumen, accesibilidad, calidad y relevancia ML.</td></tr>
+  <tr><td><strong>Viabilidad 6 meses</strong></td><td>¿Puede un equipo de 6 personas con conocimientos de Big Data construir una MVP funcional en el plazo del TFM?</td></tr>
+</table>
+</div>
+
+<!-- ══ TABLA RESUMEN ══ -->
+<div id="tabla-resumen">
+<h2>Tabla comparativa — visión general</h2>
+<table>
+  <tr>
+    <th>#</th><th>Nombre</th><th>Sector</th><th>Competencia ES</th><th>Datos /20</th><th>Recomendación</th>
+  </tr>
+  <tr><td>01</td><td>Anomalías contratación</td><td>Transparencia</td><td><span class="badge badge-amber">Parcial (Tendios)</span></td><td>19</td><td><span class="badge badge-green">Alta</span></td></tr>
+  <tr><td>02</td><td>Orientación laboral SEPE</td><td>Empleo</td><td><span class="badge badge-amber">Existe (EMi Galicia)</span></td><td>14</td><td><span class="badge badge-amber">Media</span></td></tr>
+  <tr><td>03</td><td>Pisos turísticos ilegales</td><td>Vivienda</td><td><span class="badge badge-green">Gap libre</span></td><td>15</td><td><span class="badge badge-green">Muy alta</span></td></tr>
+  <tr><td>04</td><td>Salud financiera municipal</td><td>Hacienda</td><td><span class="badge badge-green">Gap libre</span></td><td>17</td><td><span class="badge badge-green">Muy alta</span></td></tr>
+  <tr><td>05</td><td>Tramitador licencias IA</td><td>Administración</td><td><span class="badge badge-red">Competencia alta</span></td><td>12</td><td><span class="badge badge-red">Baja</span></td></tr>
+  <tr><td>06</td><td>Transporte rural</td><td>Movilidad</td><td><span class="badge badge-green">Gap libre</span></td><td>13</td><td><span class="badge badge-green">Alta</span></td></tr>
+  <tr><td>07</td><td>Morosidad pagos públicos</td><td>Hacienda</td><td><span class="badge badge-green">Gap libre</span></td><td>17</td><td><span class="badge badge-green">Alta</span></td></tr>
+  <tr><td>08</td><td>Demanda servicios sociales</td><td>Bienestar</td><td><span class="badge badge-green">Gap libre</span></td><td>12</td><td><span class="badge badge-amber">Media</span></td></tr>
+  <tr><td>09</td><td>Riesgo desahucio</td><td>Vivienda</td><td><span class="badge badge-green">Gap libre</span></td><td>13</td><td><span class="badge badge-green">Alta</span></td></tr>
+  <tr><td>10</td><td>Inspecciones sanidad</td><td>Salud</td><td><span class="badge badge-amber">Parcial</span></td><td>10</td><td><span class="badge badge-amber">Media</span></td></tr>
+  <tr><td>11</td><td>Fugas red agua</td><td>Infraestructura</td><td><span class="badge badge-amber">Parcial</span></td><td>8</td><td><span class="badge badge-amber">Media</span></td></tr>
+  <tr><td>12</td><td>Eficiencia energética edificios</td><td>Energía</td><td><span class="badge badge-green">Gap libre</span></td><td>13</td><td><span class="badge badge-green">Alta</span></td></tr>
+</table>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     IDEAS PRINCIPALES
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<h2 style="margin-top:0">Ideas Principales (12)</h2>
+
+<!-- ── IDEA 01 ── -->
+<div class="idea-card" id="idea-01">
+  <div class="idea-card-header">
+    <div>
+      <h3>01 · Detector de Anomalías en Contratación Pública</h3>
+      <div class="subtitle">Score de riesgo de irregularidad para cada licitación pública usando ML sobre el registro abierto de contratos del Estado</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Competidor parcial (Tendios)</span>
+  </div>
+  <div class="idea-card-body">
+
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>113.091 M€</strong> en contratación pública en 2024 (10,9% del PIB). Más de 200.000 licitaciones anuales.</li>
+          <li>Denuncias por irregularidades crecieron <strong>+60%</strong> en 2024 vs año anterior (récord histórico).</li>
+          <li>Solo <strong>4 de cada 10 denuncias</strong> son investigadas; ninguna enviada a Fiscalía en 2023.</li>
+          <li>32,6% de denuncias son por irregularidades en adjudicación; 20,6% por prácticas corruptas.</li>
+          <li>La propia OIReScon recomienda explícitamente usar IA para detectar amaños en pliegos y adjudicaciones.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field blue">
+      <div class="field-label">Gap en España — estado verificado mayo 2026</div>
+      <div class="field-content">
+        <p><strong>Tendios</strong> (Barcelona, 2022, 2M€ ronda jun-2025): trabaja con ~100 instituciones (Asturias, Diputación Barcelona, Ministerio Defensa). Está desarrollando "Vera", detector de señales sospechosas. Su foco principal es ayudar a empresas a <em>ganar</em> contratos y a funcionarios a <em>redactar</em> pliegos.</p>
+        <p><strong>Lo que NO existe:</strong> un scoring de riesgo automático orientado al <em>supervisor externo</em> (OIReScon, Tribunales de Cuentas, interventores) que analice cada licitación adjudicada y genere alertas de riesgo de irregularidad. Ese ángulo está libre.</p>
+        <p>También existe BRAVA/MINERVA (herramientas internas de la propia administración, no SaaS) y SALER (Generalitat Valenciana, solo interno).</p>
+      </div>
+    </div>
+
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 19/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>PLACSP (Hacienda):</strong> descarga directa XML/JSON desde 2012. Variables: órgano, tipo, CPV, importe, adjudicatario, procedimiento, número de licitadores. Actualización diaria.</li>
+          <li><strong>Dataset BQuant Finance:</strong> 8,69 millones de registros históricos ya estructurados en formato Parquet. Descarga directa gratuita.</li>
+          <li><strong>Contratos menores PLACSP:</strong> dataset separado desde 2018 (los más susceptibles de fraccionamiento).</li>
+          <li><strong>Plataformas autonómicas:</strong> Cataluña (API Socrata libre), País Vasco (REST API), Andalucía (CSV anuales).</li>
+          <li><strong>Registro Mercantil / SABI:</strong> para cruzar empresa adjudicataria con datos societarios (parcialmente gratuito).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">MVP propuesto</div>
+      <div class="field-content">
+        <table>
+          <tr><th>Módulo</th><th>Descripción</th><th>Técnica ML</th></tr>
+          <tr><td>Ingestión automática</td><td>Pipeline que descarga diariamente los XML de PLACSP y estructura en BD</td><td>ETL / Python</td></tr>
+          <tr><td>Score de riesgo</td><td>Puntúa cada licitación combinando señales de alerta</td><td>XGBoost / Isolation Forest</td></tr>
+          <tr><td>Detector de fraccionamiento</td><td>Identifica contratos menores del mismo organismo a la misma empresa en períodos cortos</td><td>Reglas + clustering temporal</td></tr>
+          <tr><td>Análisis de empresa</td><td>Perfil de adjudicataria: concentración, variación precios, sectores</td><td>Estadística + NLP</td></tr>
+          <tr><td>Dashboard + API REST</td><td>Interfaz para interventores + endpoint /score/{expediente}</td><td>FastAPI + React/Dash</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Mockup — Dashboard para interventor público</div>
+      <div class="field-content">
+        <div class="mockup-frame">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#ff5f57"></div>
+            <div class="mockup-dot" style="background:#febc2e"></div>
+            <div class="mockup-dot" style="background:#28c840"></div>
+            <div class="mockup-url">contractai.gob.es · Panel de Supervisión · OIReScon · 200.148 licitaciones activas</div>
+          </div>
+          <svg viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#1e2433;">
+            <rect x="0" y="0" width="160" height="380" fill="#161b27"/>
+            <text x="20" y="30" fill="#c8392b" font-size="11" font-family="monospace" font-weight="bold">CONTRACT AI</text>
+            <rect x="12" y="45" width="136" height="28" rx="3" fill="rgba(200,57,43,0.2)"/>
+            <text x="20" y="64" fill="#fff" font-size="11" font-family="monospace">◉ Dashboard</text>
+            <text x="20" y="92" fill="rgba(255,255,255,0.4)" font-size="11" font-family="monospace">○ Alertas</text>
+            <text x="20" y="116" fill="rgba(255,255,255,0.4)" font-size="11" font-family="monospace">○ Empresas</text>
+            <text x="20" y="140" fill="rgba(255,255,255,0.4)" font-size="11" font-family="monospace">○ Informes</text>
+            <rect x="160" y="0" width="740" height="44" fill="#252d3e"/>
+            <text x="176" y="27" fill="rgba(255,255,255,0.6)" font-size="11" font-family="monospace">Panel de Riesgo · Actualizado hace 2h · 34 alertas riesgo alto hoy</text>
+            <rect x="176" y="56" width="154" height="68" rx="4" fill="#252d3e"/>
+            <text x="192" y="76" fill="rgba(255,255,255,0.4)" font-size="9" font-family="monospace">ALERTAS HOY</text>
+            <text x="192" y="102" fill="#c8392b" font-size="26" font-family="serif" font-weight="bold">147</text>
+            <text x="192" y="116" fill="rgba(255,255,255,0.35)" font-size="9" font-family="monospace">↑ 23% vs ayer</text>
+            <rect x="342" y="56" width="154" height="68" rx="4" fill="#252d3e"/>
+            <text x="358" y="76" fill="rgba(255,255,255,0.4)" font-size="9" font-family="monospace">RIESGO ALTO (>75)</text>
+            <text x="358" y="102" fill="#e67e22" font-size="26" font-family="serif" font-weight="bold">34</text>
+            <rect x="508" y="56" width="154" height="68" rx="4" fill="#252d3e"/>
+            <text x="524" y="76" fill="rgba(255,255,255,0.4)" font-size="9" font-family="monospace">FRACCIONAMIENTO</text>
+            <text x="524" y="102" fill="#f1c40f" font-size="26" font-family="serif" font-weight="bold">12</text>
+            <rect x="674" y="56" width="154" height="68" rx="4" fill="#252d3e"/>
+            <text x="690" y="76" fill="rgba(255,255,255,0.4)" font-size="9" font-family="monospace">VALOR EN RIESGO</text>
+            <text x="690" y="102" fill="#27ae60" font-size="22" font-family="serif" font-weight="bold">4,2M€</text>
+            <rect x="176" y="140" width="652" height="24" rx="2" fill="#1a2030"/>
+            <text x="186" y="156" fill="rgba(255,255,255,0.35)" font-size="9" font-family="monospace">EXPEDIENTE</text>
+            <text x="316" y="156" fill="rgba(255,255,255,0.35)" font-size="9" font-family="monospace">ORGANISMO</text>
+            <text x="476" y="156" fill="rgba(255,255,255,0.35)" font-size="9" font-family="monospace">ADJUDICATARIA</text>
+            <text x="626" y="156" fill="rgba(255,255,255,0.35)" font-size="9" font-family="monospace">IMPORTE</text>
+            <text x="706" y="156" fill="rgba(255,255,255,0.35)" font-size="9" font-family="monospace">SCORE</text>
+            <rect x="176" y="166" width="652" height="30" rx="2" fill="rgba(200,57,43,0.1)"/>
+            <text x="186" y="186" fill="rgba(255,255,255,0.8)" font-size="10" font-family="monospace">2024/CON/00341</text>
+            <text x="316" y="186" fill="rgba(255,255,255,0.8)" font-size="10" font-family="monospace">Ayto. Valdemoro</text>
+            <text x="476" y="186" fill="rgba(255,255,255,0.8)" font-size="10" font-family="monospace">Constructora XY SA</text>
+            <text x="626" y="186" fill="rgba(255,255,255,0.8)" font-size="10" font-family="monospace">489.000€</text>
+            <rect x="700" y="173" width="34" height="18" rx="9" fill="#c8392b"/>
+            <text x="717" y="185" fill="white" font-size="9" font-family="monospace" text-anchor="middle">92</text>
+            <rect x="176" y="198" width="652" height="30" rx="2" fill="rgba(230,126,34,0.08)"/>
+            <text x="186" y="218" fill="rgba(255,255,255,0.65)" font-size="10" font-family="monospace">2024/SER/00891</text>
+            <text x="316" y="218" fill="rgba(255,255,255,0.65)" font-size="10" font-family="monospace">Diputación Cuenca</text>
+            <text x="476" y="218" fill="rgba(255,255,255,0.65)" font-size="10" font-family="monospace">IT Solutions SL</text>
+            <text x="626" y="218" fill="rgba(255,255,255,0.65)" font-size="10" font-family="monospace">127.300€</text>
+            <rect x="700" y="205" width="34" height="18" rx="9" fill="#e67e22"/>
+            <text x="717" y="217" fill="white" font-size="9" font-family="monospace" text-anchor="middle">76</text>
+            <text x="186" y="250" fill="rgba(255,255,255,0.5)" font-size="10" font-family="monospace">2024/OBR/01203</text>
+            <text x="316" y="250" fill="rgba(255,255,255,0.5)" font-size="10" font-family="monospace">MITMA</text>
+            <text x="476" y="250" fill="rgba(255,255,255,0.5)" font-size="10" font-family="monospace">Infraestructuras Norte SA</text>
+            <text x="626" y="250" fill="rgba(255,255,255,0.5)" font-size="10" font-family="monospace">2.340.000€</text>
+            <rect x="700" y="237" width="34" height="18" rx="9" fill="#27ae60"/>
+            <text x="717" y="249" fill="white" font-size="9" font-family="monospace" text-anchor="middle">18</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">
+        Python (Pandas, Polars para dataset grande) · XGBoost o LightGBM para scoring · Isolation Forest para anomalías · spaCy para NLP en pliegos · FastAPI para productivización · Streamlit o React para dashboard
+      </div>
+    </div>
+
+    <div class="field blue">
+      <div class="field-label">Encaje con el TFM</div>
+      <div class="field-content">
+        Cumple todos los requisitos de la opción 1: EDA masivo (8M+ registros), múltiples técnicas ML (supervisado + no supervisado), interpretabilidad con SHAP values (explica por qué un contrato tiene score alto), y productivización clara con API REST. Los tutores verán un trabajo técnicamente muy rico.
+      </div>
+    </div>
+
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>B2G principal:</strong> SaaS para OIReScon, Tribunales de Cuentas autonómicos, CNMC. Precio estimado: 15.000–60.000€/año por organismo.<br>
+        <strong>B2B secundario:</strong> periodistas de investigación, ONGs de transparencia.<br>
+        <strong>Diferenciación vs Tendios:</strong> ellos ayudan al licitador y al funcionario que redacta; nosotros ayudamos al supervisor externo que audita. Ángulos distintos y complementarios.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── IDEA 02 ── -->
+<div class="idea-card" id="idea-02">
+  <div class="idea-card-header">
+    <div>
+      <h3>02 · Asistente IA de Orientación Laboral para el SEPE</h3>
+      <div class="subtitle">Herramienta que predice qué parados tienen mayor riesgo de cronificarse y qué formación maximiza su reinserción</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Existe en Galicia (EMi) — pero no como SaaS para otras CCAA</span>
+  </div>
+  <div class="idea-card-body">
+
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>1,2 millones</strong> de parados de larga duración en España (&gt;12 meses).</li>
+          <li><strong>130–140 desempleados por orientador</strong> — ratio oficial de la Ley de Empleo 2023. Matemáticamente imposible hacer orientación personalizada.</li>
+          <li><strong>40%</strong> del paro total es de larga duración. Los mayores de 45 años crecen sin parar.</li>
+          <li>UGT denuncia "grave falta de recursos, escasez de personal y baja ratio de orientadores".</li>
+          <li>El Tribunal de Cuentas Europeo recomienda explícitamente un enfoque más individualizado.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field blue">
+      <div class="field-label">Gap en España — estado verificado mayo 2026</div>
+      <div class="field-content">
+        <p><strong>EMi (Empleo Inteligente) de la Xunta de Galicia:</strong> sistema IA desplegado en las 54 oficinas de empleo de Galicia. Hace perfilado competencial individual, predicciones del mercado laboral y emparejamiento oferta-demanda. Premio de la Comisión Europea en la Asamblea GovTech Connect (noviembre 2024). Es un proyecto institucional interno, no un SaaS comercial.</p>
+        <p><strong>El hueco real:</strong> EMi existe solo en Galicia. Las otras 16 CCAA (LABORA en Valencia, SOC en Cataluña, SAE en Andalucía, etc.) no tienen nada equivalente. Un SaaS que lleve las capacidades de EMi al resto de servicios de empleo autonómicos está completamente libre.</p>
+        <p>El SEPE central tiene el Observatorio de Ocupaciones (informes PDF) y Empléate (buscador básico), pero sin modelos predictivos individuales.</p>
+      </div>
+    </div>
+
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 14/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>SEPE – Paro registrado:</strong> mensual por municipio, sector, ocupación, perfil demográfico. Serie desde 1996.</li>
+          <li><strong>SEPE – Estadísticas de contratos:</strong> por provincia, sector, ocupación, tipo de contrato. Descarga directa.</li>
+          <li><strong>SEPE – Observatorio de Ocupaciones:</strong> demanda de competencias por provincia.</li>
+          <li><strong>SEPE – Catálogo Especialidades Formativas:</strong> cursos con tasas de inserción por zona.</li>
+          <li><strong>Limitación importante:</strong> los datos individuales de demandantes (historial, inserción obtenida) están en el SISPE y son confidenciales. El TFM trabaja con perfiles-tipo agregados por segmentos (edad + sector + provincia + duración) — suficiente para demostrar viabilidad.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">MVP propuesto</div>
+      <div class="field-content">
+        <table>
+          <tr><th>Módulo</th><th>Descripción</th><th>Técnica ML</th></tr>
+          <tr><td>Perfil de riesgo de cronificación</td><td>Clasifica perfiles-tipo según probabilidad de seguir en paro a 6 meses</td><td>Random Forest clasificador</td></tr>
+          <tr><td>Recomendador de formación</td><td>Cursos con mayor tasa de inserción real para ese perfil en esa provincia</td><td>Collaborative filtering + regresión</td></tr>
+          <tr><td>Mapa de demanda local</td><td>Sectores y ocupaciones contratando activamente en la zona</td><td>Series temporales + visualización</td></tr>
+          <tr><td>Dashboard orientador</td><td>Lista priorizada de cartera con fichas de acción recomendada</td><td>—</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Mockup — Vista del orientador</div>
+      <div class="field-content">
+        <div class="mockup-frame">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#ff5f57"></div>
+            <div class="mockup-dot" style="background:#febc2e"></div>
+            <div class="mockup-dot" style="background:#28c840"></div>
+            <div class="mockup-url">empleoai.sepe.es · Orientador: María López · 142 demandantes activos</div>
+          </div>
+          <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#f0f4f8;">
+            <rect x="0" y="0" width="900" height="50" fill="#1a5276"/>
+            <text x="20" y="32" fill="white" font-size="14" font-family="Arial" font-weight="bold">EMPLEO AI · SEPE</text>
+            <text x="200" y="32" fill="rgba(255,255,255,0.6)" font-size="11" font-family="Arial">Dashboard · Cartera · Formación · Mercado</text>
+            <rect x="16" y="62" width="130" height="60" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+            <text x="26" y="80" fill="#666" font-size="9" font-family="monospace">CARTERA</text>
+            <text x="26" y="104" fill="#1a5276" font-size="24" font-family="serif" font-weight="bold">142</text>
+            <rect x="158" y="62" width="130" height="60" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+            <text x="168" y="80" fill="#666" font-size="9" font-family="monospace">RIESGO ALTO</text>
+            <text x="168" y="104" fill="#c8392b" font-size="24" font-family="serif" font-weight="bold">28</text>
+            <rect x="300" y="62" width="130" height="60" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+            <text x="310" y="80" fill="#666" font-size="9" font-family="monospace">SIN CONTACTAR</text>
+            <text x="310" y="104" fill="#e67e22" font-size="24" font-family="serif" font-weight="bold">14</text>
+            <rect x="442" y="62" width="130" height="60" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+            <text x="452" y="80" fill="#666" font-size="9" font-family="monospace">INSERTADOS MES</text>
+            <text x="452" y="104" fill="#27ae60" font-size="24" font-family="serif" font-weight="bold">7</text>
+            <rect x="16" y="136" width="450" height="172" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+            <text x="28" y="158" fill="#333" font-size="11" font-family="Arial" font-weight="bold">PRIORIDAD DE ATENCIÓN HOY</text>
+            <rect x="24" y="166" width="434" height="42" rx="3" fill="#fdf0ee"/>
+            <rect x="24" y="166" width="4" height="42" fill="#c8392b"/>
+            <text x="38" y="184" fill="#333" font-size="11" font-family="Arial" font-weight="bold">Carlos M., 52 años · Albañil · 14 meses en paro</text>
+            <text x="38" y="199" fill="#666" font-size="10" font-family="Arial">Riesgo cronificación: 84% · Rec: Curso electricidad BT (inserción 71%)</text>
+            <rect x="408" y="175" width="36" height="20" rx="10" fill="#c8392b"/>
+            <text x="426" y="189" fill="white" font-size="9" font-family="monospace" text-anchor="middle">84%</text>
+            <rect x="24" y="212" width="434" height="42" rx="3" fill="#fdfbf0"/>
+            <rect x="24" y="212" width="4" height="42" fill="#e67e22"/>
+            <text x="38" y="230" fill="#333" font-size="11" font-family="Arial" font-weight="bold">Ana R., 38 años · Administrativa · 8 meses en paro</text>
+            <text x="38" y="245" fill="#666" font-size="10" font-family="Arial">Riesgo cronificación: 67% · Rec: Reskilling digital · Marketing online</text>
+            <rect x="408" y="221" width="36" height="20" rx="10" fill="#e67e22"/>
+            <text x="426" y="235" fill="white" font-size="9" font-family="monospace" text-anchor="middle">67%</text>
+            <rect x="24" y="258" width="434" height="38" rx="3" fill="#f0f9f5"/>
+            <rect x="24" y="258" width="4" height="38" fill="#27ae60"/>
+            <text x="38" y="276" fill="#333" font-size="11" font-family="Arial" font-weight="bold">Luis T., 29 años · Informático · 3 meses en paro</text>
+            <text x="38" y="291" fill="#666" font-size="10" font-family="Arial">Riesgo: 22% · Mercado activo en su sector en Madrid</text>
+            <rect x="408" y="267" width="36" height="20" rx="10" fill="#27ae60"/>
+            <text x="426" y="281" fill="white" font-size="9" font-family="monospace" text-anchor="middle">22%</text>
+            <rect x="480" y="136" width="404" height="172" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
+            <text x="492" y="158" fill="#333" font-size="11" font-family="Arial" font-weight="bold">MERCADO LOCAL · Madrid Sur</text>
+            <text x="492" y="178" fill="#333" font-size="10" font-family="Arial">Conductor de reparto</text>
+            <rect x="620" y="168" width="120" height="12" rx="2" fill="#1a5276" opacity="0.85"/>
+            <text x="748" y="178" fill="#333" font-size="10" font-family="monospace">+34%</text>
+            <text x="492" y="202" fill="#333" font-size="10" font-family="Arial">Operador logístico</text>
+            <rect x="620" y="192" width="100" height="12" rx="2" fill="#1a5276" opacity="0.7"/>
+            <text x="728" y="202" fill="#333" font-size="10" font-family="monospace">+28%</text>
+            <text x="492" y="226" fill="#333" font-size="10" font-family="Arial">Auxiliar administrativo</text>
+            <rect x="620" y="216" width="80" height="12" rx="2" fill="#1a5276" opacity="0.55"/>
+            <text x="708" y="226" fill="#333" font-size="10" font-family="monospace">+19%</text>
+            <text x="492" y="250" fill="#333" font-size="10" font-family="Arial">Técnico mantenimiento</text>
+            <rect x="620" y="240" width="60" height="12" rx="2" fill="#1a5276" opacity="0.4"/>
+            <text x="688" y="250" fill="#333" font-size="10" font-family="monospace">+12%</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Pandas · Random Forest (clasificación) · Collaborative Filtering (recomendación) · Prophet/ARIMA (series temporales mercado laboral) · FastAPI · Streamlit o React</div>
+    </div>
+
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>B2G:</strong> SaaS para Servicios Públicos de Empleo autonómicos (LABORA, SOC, SAE, LANBIDE…) que no tienen EMi. Precio estimado: 20.000–50.000€/año por servicio autonómico.<br>
+        <strong>Propuesta de valor:</strong> "El EMi de Galicia para todas las demás CCAA". EMi ya ha demostrado que funciona; nosotros lo comercializamos.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── IDEA 03 ── -->
+<div class="idea-card" id="idea-03">
+  <div class="idea-card-header">
+    <div>
+      <h3>03 · Detector de Viviendas Turísticas Ilegales</h3>
+      <div class="subtitle">Plataforma que cruza el Registro Único de VUT (obligatorio desde jul-2025) con anuncios activos en Airbnb/Booking para detectar incumplimientos</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — timing perfecto</span>
+  </div>
+  <div class="idea-card-body">
+
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>65.935 anuncios ilegales</strong> detectados en Airbnb por el Ministerio de Consumo (mayo 2025). Solo el Ministerio puede actuar; los ayuntamientos no tienen herramienta.</li>
+          <li><strong>53.876 VUT ilegales</strong> adicionales notificados por el Ministerio de Vivienda (sept-2025) — pisos que solicitaron registro pero no lo obtuvieron por no cumplir requisitos.</li>
+          <li><strong>15.200 alojamientos sin licencia</strong> solo en Madrid (1.131 licencias concedidas vs 16.335 anuncios activos).</li>
+          <li>El <strong>Real Decreto 1312/2024</strong> (en vigor desde julio 2025) obliga a registrar toda VUT. La AEAT ha declarado que intensificará controles en su Plan 2025.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field blue">
+      <div class="field-label">Gap en España — estado verificado mayo 2026</div>
+      <div class="field-content">
+        <p>El Ministerio de Consumo detecta ilegales de forma puntual y centralizada con su equipo propio. Los 8.000+ ayuntamientos <strong>no tienen herramienta de monitorización continua</strong>. No existe ningún SaaS español equivalente a Deckard Technologies (EEUU), que sirve a 400+ municipios con 95,3% de tasa de cumplimiento.</p>
+        <p>Timing único: la ley acaba de entrar en vigor (julio 2025), los ayuntamientos están desbordados, el Registro genera datos que antes no existían. <strong>Primer año de la regulación = ventana perfecta.</strong></p>
+      </div>
+    </div>
+
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 15/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>Registro Único VUT:</strong> datos abiertos desde julio 2025. Número de registro, dirección, tipo.</li>
+          <li><strong>Airbnb/Booking:</strong> anuncios públicos con dirección aproximada, precio, número de registro (si lo tienen). Accesibles via scraping de datos públicos.</li>
+          <li><strong>Catastro:</strong> API abierta para validar direcciones y titulares.</li>
+          <li><strong>INE:</strong> estadísticas de turismo para contextualizar.</li>
+          <li><strong>Limitación:</strong> el scraping de plataformas es técnicamente posible pero requiere gestión cuidadosa de términos de uso.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">MVP propuesto</div>
+      <div class="field-content">
+        <table>
+          <tr><th>Módulo</th><th>Descripción</th><th>Técnica</th></tr>
+          <tr><td>Scraper de plataformas</td><td>Extrae anuncios activos de Airbnb, Booking con geolocalización y número de registro</td><td>Scrapy/Playwright + Python</td></tr>
+          <tr><td>Matching con Registro</td><td>Cruza dirección del anuncio con Registro Único para determinar si tiene registro válido</td><td>Fuzzy matching + geocoding</td></tr>
+          <tr><td>Score de riesgo fiscal</td><td>Estima ingresos no declarados comparando noches×precio con rentas declaradas zona</td><td>Regresión + estadística</td></tr>
+          <tr><td>Dashboard municipal</td><td>Mapa de calor por barrio + exportación para inspectores + alertas automáticas</td><td>Folium/Leaflet + FastAPI</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Mockup — Mapa de incumplimientos para inspector municipal</div>
+      <div class="field-content">
+        <div class="mockup-frame">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#ff5f57"></div>
+            <div class="mockup-dot" style="background:#febc2e"></div>
+            <div class="mockup-dot" style="background:#28c840"></div>
+            <div class="mockup-url">straudit.ayuntamiento.es · Inspector: Dpto. Vivienda Turística · Madrid · 8.247 anuncios activos</div>
+          </div>
+          <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#2c3e50;">
+            <rect x="0" y="0" width="900" height="44" fill="#1a252f"/>
+            <text x="20" y="28" fill="white" font-size="13" font-family="Arial" font-weight="bold">STR COMPLIANCE · Madrid</text>
+            <rect x="700" y="10" width="100" height="24" rx="4" fill="#c8392b"/>
+            <text x="750" y="26" fill="white" font-size="10" font-family="monospace" text-anchor="middle">1.203 ILEGALES</text>
+            <rect x="810" y="10" width="80" height="24" rx="4" fill="#27ae60"/>
+            <text x="850" y="26" fill="white" font-size="10" font-family="monospace" text-anchor="middle">7.044 OK</text>
+            <rect x="0" y="44" width="600" height="276" fill="#34495e"/>
+            <ellipse cx="300" cy="200" rx="220" ry="130" fill="#3d5166" opacity="0.5"/>
+            <circle cx="200" cy="160" r="18" fill="#c8392b" opacity="0.7"/>
+            <circle cx="240" cy="148" r="22" fill="#c8392b" opacity="0.65"/>
+            <circle cx="178" cy="188" r="15" fill="#c8392b" opacity="0.6"/>
+            <circle cx="260" cy="174" r="28" fill="#e67e22" opacity="0.55"/>
+            <circle cx="350" cy="198" r="20" fill="#f1c40f" opacity="0.5"/>
+            <circle cx="380" cy="178" r="16" fill="#27ae60" opacity="0.5"/>
+            <circle cx="420" cy="208" r="18" fill="#27ae60" opacity="0.45"/>
+            <rect x="150" y="248" width="90" height="18" rx="3" fill="rgba(0,0,0,0.5)"/>
+            <text x="195" y="261" fill="white" font-size="9" font-family="Arial" text-anchor="middle">Lavapiés</text>
+            <rect x="218" y="120" width="80" height="18" rx="3" fill="rgba(0,0,0,0.5)"/>
+            <text x="258" y="133" fill="white" font-size="9" font-family="Arial" text-anchor="middle">Malasaña</text>
+            <rect x="338" y="138" width="68" height="18" rx="3" fill="rgba(0,0,0,0.5)"/>
+            <text x="372" y="151" fill="white" font-size="9" font-family="Arial" text-anchor="middle">Chueca</text>
+            <rect x="600" y="44" width="300" height="276" fill="#2c3e50"/>
+            <text x="620" y="72" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">TOP ZONAS CON MÁS INCUMPLIMIENTOS</text>
+            <text x="620" y="98" fill="white" font-size="11" font-family="Arial">Malasaña</text>
+            <rect x="620" y="104" width="180" height="8" rx="2" fill="#c8392b" opacity="0.8"/>
+            <text x="808" y="111" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">312</text>
+            <text x="620" y="128" fill="white" font-size="11" font-family="Arial">Lavapiés</text>
+            <rect x="620" y="134" width="150" height="8" rx="2" fill="#c8392b" opacity="0.65"/>
+            <text x="778" y="141" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">261</text>
+            <text x="620" y="158" fill="white" font-size="11" font-family="Arial">Sol / Centro</text>
+            <rect x="620" y="164" width="120" height="8" rx="2" fill="#e67e22" opacity="0.7"/>
+            <text x="748" y="171" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">208</text>
+            <text x="620" y="188" fill="white" font-size="11" font-family="Arial">Chueca</text>
+            <rect x="620" y="194" width="95" height="8" rx="2" fill="#e67e22" opacity="0.55"/>
+            <text x="723" y="201" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">165</text>
+            <rect x="608" y="220" width="280" height="50" rx="3" fill="rgba(200,57,43,0.2)" stroke="#c8392b" stroke-width="0.5"/>
+            <text x="620" y="238" fill="white" font-size="10" font-family="Arial" font-weight="bold">Calle Fuencarral 87, 3ºB</text>
+            <text x="620" y="253" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Arial">Airbnb activo · Sin número de registro</text>
+            <text x="620" y="265" fill="rgba(255,255,255,0.4)" font-size="9" font-family="monospace">Est. ingresos no declarados: 18.400€/año</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python (Scrapy/Playwright) · Fuzzy string matching (fuzzywuzzy) · Geocoding (Nominatim/Google) · Folium para mapas · FastAPI · Streamlit/React dashboard</div>
+    </div>
+
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>SaaS B2G:</strong> suscripción anual por municipio. 8.000–25.000€/año según tamaño (Madrid/Barcelona vs municipio costero mediano).<br>
+        <strong>Argumento de venta autofinanciado:</strong> el incremento en recaudación tributaria paga la herramienta. En EEUU Deckard logró +40% en recaudación para sus 400 clientes municipales.<br>
+        <strong>Mercado potencial:</strong> 50+ ciudades con alta concentración turística (Madrid, Barcelona, Sevilla, Valencia, Málaga, Baleares, Canarias…)
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ── IDEA 04 ── -->
+<div class="idea-card" id="idea-04">
+  <div class="idea-card-header">
+    <div>
+      <h3>04 · Monitor de Salud Financiera Municipal</h3>
+      <div class="subtitle">Score de riesgo financiero predictivo para los 8.200 ayuntamientos de España usando series históricas de datos presupuestarios públicos desde 2010</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — sin competencia</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>200 ayuntamientos</strong> en situación de riesgo financiero según FEMP (2023).</li>
+          <li><strong>85 municipios</strong> con plan de sostenibilidad financiera activo (rescate del Gobierno, 2025). Capital pendiente: 4.223 M€.</li>
+          <li>El MINHAC activa mecanismos solo cuando el municipio <em>ya está en crisis</em>. El Tribunal de Cuentas critica la ausencia de herramientas predictivas.</li>
+          <li>Los datos presupuestarios de todos los ayuntamientos están en el Portal de Rendición de Cuentas desde 2010. Nadie los ha transformado en un modelo de alerta temprana.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — estado verificado mayo 2026</div>
+      <div class="field-content">
+        El MINHAC clasifica municipios por umbrales de deuda/ingresos (reacción tardía). El Portal de Rendición de Cuentas publica los datos en bruto. No existe ningún SaaS con modelo predictivo, series temporales y scoring proactivo por municipio. No se ha encontrado ninguna empresa española haciendo esto con ML.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 17/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>Portal Rendición de Cuentas (Tribunal de Cuentas):</strong> cuentas anuales de todos los ayuntamientos desde 2010. Descarga directa. Variables: ingresos, gastos, remanente de tesorería, deuda, periodo medio de pago.</li>
+          <li><strong>MINHAC – Deuda Local:</strong> deuda viva por municipio, actualización trimestral. Descarga directa.</li>
+          <li><strong>MINHAC – Periodo Medio de Pago:</strong> indicador clave de tensión de tesorería, por organismo, trimestral.</li>
+          <li><strong>INE – Estadísticas municipales:</strong> demografía, renta, actividad económica. API abierta.</li>
+          <li><strong>Limitación:</strong> ~15% de ayuntamientos pequeños presentan datos con retraso o incompletos. Missing data a gestionar.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">MVP propuesto</div>
+      <div class="field-content">
+        <table>
+          <tr><th>Módulo</th><th>Descripción</th><th>Técnica ML</th></tr>
+          <tr><td>Score de riesgo</td><td>Índice 0–100 por municipio: ratio deuda/ingresos, PMP, remanente, ejecución presupuestaria</td><td>XGBoost + series temporales</td></tr>
+          <tr><td>Trayectoria</td><td>Proyección a 3–6 trimestres de evolución del riesgo</td><td>Prophet / LSTM</td></tr>
+          <tr><td>Comparativa de pares</td><td>Compara cada municipio con similares (tamaño, CCAA, base económica)</td><td>Clustering + comparativa estadística</td></tr>
+          <tr><td>Dashboard + API</td><td>Interfaz para interventores y Hacienda + API REST para integración</td><td>FastAPI + React/Dash</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Pandas · XGBoost/LightGBM · Prophet para series temporales · K-Means para clustering de municipios similares · FastAPI · Streamlit/Dash</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>B2G principal:</strong> Ministerio de Hacienda, Banco de España, Diputaciones Provinciales. Precio: 30.000–100.000€/año para organismo supervisor.<br>
+        <strong>B2B secundario:</strong> bancos con exposición en deuda local, agencias de rating, firmas de consultoría.<br>
+        <strong>Free tier público:</strong> semáforo simplificado por municipio para fomentar transparencia y generar tracción.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 05 ── -->
+<div class="idea-card" id="idea-05">
+  <div class="idea-card-header">
+    <div>
+      <h3>05 · Asistente IA para Tramitación de Licencias Municipales</h3>
+      <div class="subtitle">LLM + RAG sobre normativa municipal que revisa solicitudes, detecta documentación faltante y estima tiempos de resolución</div>
+    </div>
+    <span class="badge badge-red">🔴 Competencia alta — HP FlowMaster, Alicante ALI, integradoras</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field red">
+      <div class="field-label">Estado de competencia — verificado mayo 2026</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>HP FlowMaster</strong> (centro innovación León, may-2026): plataforma IA para validación de expedientes en ayuntamientos.</li>
+          <li><strong>Alicante ALI</strong> (enero 2024): primer asistente virtual municipal con IA para tramitaciones.</li>
+          <li><strong>Govstream.ai</strong> (Seattle EEUU): levantó 4,9M$ en 2024 vendiendo exactamente esto. Señal de mercado activo.</li>
+          <li>Múltiples grandes integradoras (Atos, Indra, Nucleoo) entrando rápido en este espacio.</li>
+          <li>Artículo de Fundación Emprende (abril 2025) documenta reducciones de "6 meses a 15 días" con IA ya implementadas.</li>
+        </ul>
+        <strong>Conclusión:</strong> El mercado se ha puesto muy concurrido en los últimos 12 meses. Difícil diferenciarse con un equipo de TFM en 6 meses.
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Idea documentada (por si el equipo quiere diferenciarse)</div>
+      <div class="field-content">
+        <p>Si se elige esta idea, el diferenciador debe ser muy específico: por ejemplo, especialización en un tipo de licencia concreto (obra menor, apertura de actividad), o en un nicho de municipios medianos (20k-300k hab.) que no pueden pagar soluciones de Indra/HP. El stack sería LLM (Claude/GPT API) + RAG sobre normativa pública + FastAPI.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 06 ── -->
+<div class="idea-card" id="idea-06">
+  <div class="idea-card-header">
+    <div>
+      <h3>06 · Optimizador de Transporte Público Rural</h3>
+      <div class="subtitle">Herramienta de optimización multi-objetivo para diseñar redes de autobús rural que maximicen cobertura con presupuesto limitado</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — urgencia política máxima ahora</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>456 rutas de autobús suprimidas</strong> en el nuevo mapa concesional 2024.</li>
+          <li><strong>1.417 municipios</strong> que perderán su conexión de autobús estatal.</li>
+          <li><strong>3,25 millones de personas</strong> en España rural afectadas.</li>
+          <li>9.300+ paradas cerradas. Debate activo en el Senado. Colectivos España Vaciada en pie de guerra.</li>
+          <li>El argumento del gobierno para suprimir: "viabilidad económica" (coste/pasajero). El problema es que esta lógica urbana no funciona en rural: bajas frecuencias → baja demanda → más recortes.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — estado verificado mayo 2026</div>
+      <div class="field-content">
+        Existen iniciativas piloto locales (Sierracar en Madrid, Celering en Bizkaia) pero son proyectos específicos municipales, no plataformas reutilizables. El Ministerio de Transportes analiza propuestas (REDR, mayo 2024) pero no tiene herramienta. No existe ningún SaaS de optimización de redes rurales en España.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 13/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>OpenStreetMap:</strong> red vial completa con atributos. Descarga directa.</li>
+          <li><strong>INE – Padrón municipal:</strong> población por municipio. API abierta.</li>
+          <li><strong>MITMA – Aforos y movilidad:</strong> intensidades de tráfico y datos de movilidad. Descarga directa.</li>
+          <li><strong>Datos.gob.es:</strong> localización de servicios públicos (hospitales, colegios, oficinas SEPE).</li>
+          <li><strong>Limitación importante:</strong> datos reales de pasajeros por línea no son públicos (los tienen las concesionarias). El modelo trabaja con demanda estimada a partir de demografía y localización de servicios.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">MVP propuesto</div>
+      <div class="field-content">
+        <table>
+          <tr><th>Módulo</th><th>Descripción</th><th>Técnica</th></tr>
+          <tr><td>Mapa de demanda</td><td>Estima demanda potencial por municipio: población + edad + localización de servicios + distancia a núcleos</td><td>Regresión + datos geoespaciales</td></tr>
+          <tr><td>Optimizador de red</td><td>Dado presupuesto fijo, maximiza cobertura de población y accesibilidad a servicios</td><td>OR-Tools (Google, open source)</td></tr>
+          <tr><td>Simulador de escenarios</td><td>El planificador compara diferentes diseños de red antes de tomar decisiones</td><td>Visualización interactiva</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · NetworkX (grafos de red vial) · OR-Tools (optimización combinatoria, Google, gratuito) · GeoPandas (datos espaciales) · OSMnx (OpenStreetMap en Python) · Folium para visualización de mapas</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>B2G:</strong> Ministerio de Transportes, consorcios de transporte autonómicos, diputaciones provinciales.<br>
+        <strong>Argumento político:</strong> en pleno debate sobre supresión de rutas, una herramienta que permite diseñar redes más eficientes con el mismo presupuesto tiene apoyo bipartidista.<br>
+        <strong>Timing:</strong> el debate en el Senado sobre el nuevo mapa concesional está activo ahora mismo.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 07 ── -->
+<div class="idea-card" id="idea-07">
+  <div class="idea-card-header">
+    <div>
+      <h3>07 · Predictor de Morosidad en Pagos Públicos</h3>
+      <div class="subtitle">Score de riesgo de impago del Periodo Medio de Pago para organismos públicos — útil para el gobierno y para las pymes que contratan con la Administración</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — doble cliente B2G + B2B</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li>La <strong>Ley 3/2004 de Lucha contra la Morosidad</strong> fija 30 días máximo de pago a proveedores en el sector público. El incumplimiento sistemático es documentado trimestralmente por el MINHAC.</li>
+          <li>Las pymes que trabajan con la Administración sufren tensiones de liquidez sin poder predecir cuándo cobrarán.</li>
+          <li>El MINHAC publica el PMP de todos los organismos pero como dato estático, sin predicción ni alertas de deterioro.</li>
+          <li>No existe ninguna herramienta que transforme ese dato en un score de riesgo accesible.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — estado verificado mayo 2026</div>
+      <div class="field-content">
+        No se ha encontrado ninguna startup española haciendo esto. Los datos de PMP son 100% públicos y trimestrales. La Ley de Morosidad es ampliamente incumplida y el problema es conocido pero sin herramienta de predicción.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 17/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>MINHAC – PMP trimestral:</strong> por cada organismo de la Administración. Serie histórica completa. Descarga directa.</li>
+          <li><strong>Portal Rendición de Cuentas:</strong> cuentas anuales para cruzar con el PMP.</li>
+          <li><strong>MINHAC – Deuda local:</strong> evolución trimestral de deuda por organismo.</li>
+          <li><strong>PLACSP:</strong> volumen de contratación del organismo (proxy de carga financiera).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">MVP propuesto</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>Score de morosidad:</strong> modelo que predice el PMP futuro de cada organismo basado en su historial y variables macroeconómicas.</li>
+          <li><strong>Buscador público:</strong> cualquier empresa puede buscar un organismo y ver historial + score de riesgo de cobro.</li>
+          <li><strong>API B2B:</strong> las plataformas de licitación (Gobierto, Licitify) pueden integrar el score en sus fichas.</li>
+          <li><strong>Alertas para Hacienda:</strong> notificación cuando un organismo muestra señales de deterioro antes del incumplimiento formal.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Pandas · XGBoost / ARIMA para series temporales · FastAPI · Web app sencilla (React o Streamlit)</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>B2G:</strong> Ministerio de Hacienda, AEAT, organismos supervisores. Para alertas de deterioro antes de incumplimiento formal.<br>
+        <strong>B2B pymes:</strong> suscripción para empresas que contratan habitualmente con la Administración y quieren evaluar el riesgo de cobro antes de firmar. Esto es la parte más escalable comercialmente.<br>
+        <strong>Free tier:</strong> búsqueda básica de historial PMP por organismo para generar tráfico.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 08 ── -->
+<div class="idea-card" id="idea-08">
+  <div class="idea-card-header">
+    <div>
+      <h3>08 · Predictor de Demanda de Servicios Sociales</h3>
+      <div class="subtitle">Modelo geográfico-demográfico que anticipa dónde se disparará la demanda de dependencia, menores en riesgo y exclusión social</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — solo datos agregados</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>152.693 personas</strong> en lista de espera del SAAD (Sistema Atención Dependencia) en diciembre 2025.</li>
+          <li><strong>50.000 plazas residenciales extra</strong> necesarias solo para atender la demanda actual de dependencia.</li>
+          <li>Las CCAA con más déficit: Andalucía (36.327 personas en lista) y Valencia (26.929).</li>
+          <li>El envejecimiento de la población es predecible pero los servicios no planifican con antelación. Siempre van a remolque.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Limitación importante</div>
+      <div class="field-content">
+        No hay acceso a datos individuales de usuarios de servicios sociales (RGPD + confidencialidad). El modelo opera exclusivamente con <strong>datos agregados geográficos</strong>. Esto lo hace éticamente limpio pero menos granular. La propuesta de valor es para planificación de recursos (¿cuántas plazas crear, dónde y cuándo?), no para identificación de individuos en riesgo.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 12/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>INE – Proyecciones de población:</strong> por municipio y edad, horizonte 15 años. API abierta.</li>
+          <li><strong>INE – Atlas de Distribución de Renta:</strong> renta media por sección censal. Descarga directa.</li>
+          <li><strong>IMSERSO – Datos SAAD:</strong> estadísticas de dependencia por CCAA. Descarga directa.</li>
+          <li><strong>Datos fragmentados:</strong> cada ayuntamiento gestiona sus datos de usuarios, sin base de datos nacional consolidada.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · GeoPandas · Regresión múltiple sobre demografía + renta · Prophet para proyecciones · Folium para mapa de calor por sección censal</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 09 ── -->
+<div class="idea-card" id="idea-09">
+  <div class="idea-card-header">
+    <div>
+      <h3>09 · Predictor de Riesgo de Desahucio por Zonas</h3>
+      <div class="subtitle">Mapa geográfico que identifica zonas con alta probabilidad de aumento de lanzamientos judiciales para intervención preventiva de servicios sociales</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — sin competencia</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema — cifras reales</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>36.000 lanzamientos judiciales</strong> en España en 2023.</li>
+          <li>Los servicios sociales municipales intervienen cuando la familia <em>ya está en la calle</em>. No hay sistema de alerta temprana.</li>
+          <li>Los datos judiciales del CGPJ son públicos por provincia y trimestre desde 2007.</li>
+          <li>Modelo análogo implementado en UK (Local Government Association): varios consejos locales usan ML para identificar familias en riesgo antes de que presenten solicitud de emergencia.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 13/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>CGPJ – Estadísticas judiciales:</strong> lanzamientos por provincia y trimestre. Público y descargable. Variable objetivo disponible.</li>
+          <li><strong>INE – Atlas de Renta:</strong> renta media por sección censal. Proxy de vulnerabilidad.</li>
+          <li><strong>SEPE – Paro registrado:</strong> por municipio. Proxy de estrés económico zonal.</li>
+          <li><strong>Catastro:</strong> tipología de viviendas y régimen de tenencia por zona.</li>
+          <li><strong>Limitación:</strong> granularidad de los datos del CGPJ es a nivel provincial, no municipal. Los modelos a nivel de barrio requieren datos complementarios.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · GeoPandas · XGBoost o Random Forest · Variable objetivo: lanzamientos/1000 hab por zona · Features: paro, renta, tipología vivienda, PMP organismos públicos · Folium para mapa de calor</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Modelo de negocio</div>
+      <div class="field-content">
+        <strong>B2G:</strong> Áreas de Servicios Sociales de ayuntamientos grandes y medianos, Consejerías de Vivienda. Precio: 8.000–20.000€/año.<br>
+        <strong>Ética:</strong> el modelo no identifica personas, identifica zonas geográficas. Esto es clave para el pitch ante administraciones sensibles a RGPD.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 10 ── -->
+<div class="idea-card" id="idea-10">
+  <div class="idea-card-header">
+    <div>
+      <h3>10 · Optimizador de Inspecciones de Sanidad</h3>
+      <div class="subtitle">Modelo predictivo para priorizar qué restaurantes y establecimientos alimentarios inspeccionar según riesgo histórico y señales contextuales</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Sin SaaS comercial, pero requiere convenio con CCAA</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">Caso de éxito mundial</div>
+      <div class="field-content">
+        Chicago (con Civic Analytics Network de Harvard): modelo entrenado con datos históricos de inspecciones + Yelp + permisos + clima. Detectó violaciones críticas <strong>7 días antes</strong> que las inspecciones por turno tradicional. El modelo es open source y varios países lo han adaptado.
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Obstáculo principal</div>
+      <div class="field-content">
+        El dato más valioso (historial de infracciones por establecimiento) está en los sistemas de las Consejerías de Sanidad de cada CCAA y <strong>no es público</strong>. Para el TFM habría que trabajar con datos sintéticos basados en la distribución real de infracciones publicada en informes anuales de las CCAA + datos públicos de establecimientos del IAE. Requiere convenio institucional para datos reales.
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Features del modelo (las disponibles públicamente)</div>
+      <div class="field-content">
+        Tipo y antigüedad del establecimiento (IAE, público) · Valoraciones en Google/TripAdvisor (scraping) · Datos climáticos AEMET (temperaturas correlacionan con incidencias) · Época del año y eventos locales · Zona geográfica
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 11 ── -->
+<div class="idea-card" id="idea-11">
+  <div class="idea-card-header">
+    <div>
+      <h3>11 · Detector de Fugas en Red de Agua Municipal</h3>
+      <div class="subtitle">ML sobre series temporales de caudal y presión para detectar fugas antes de que provoquen averías visibles</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Nicho libre para municipios pequeños — requiere datos de sensores</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema</div>
+      <div class="field-content">
+        España pierde entre el 20–30% del agua tratada en redes de distribución municipales. Las mancomunidades de agua medianas (10.000–100.000 hab.) no tienen herramientas analíticas. HULO (Países Bajos) levantó 2,3M€ en octubre 2025 para detección de fugas con IA. Las grandes concesionarias (Aqualia, Suez) tienen sistemas propios para sus contratos grandes.
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Obstáculo para el TFM</div>
+      <div class="field-content">
+        El modelo necesita series temporales de <strong>presión y caudal de los sensores de la red</strong> — datos que tienen los gestores de agua pero que no son públicos. Para el TFM sería necesario un convenio con al menos un ayuntamiento o mancomunidad local que ceda sus datos. Alternativa: usar el dataset open source EPANET (benchmark networks de EEUU) para entrenar y luego validar con datos reales.
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Series temporales (LSTM / Prophet) · Detección de anomalías (Isolation Forest, Autoencoder) · EPANET para modelado hidráulico si se trabaja con datos sintéticos</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 12 ── -->
+<div class="idea-card" id="idea-12">
+  <div class="idea-card-header">
+    <div>
+      <h3>12 · Optimizador de Eficiencia Energética de Edificios Públicos</h3>
+      <div class="subtitle">Herramienta que prioriza qué edificios municipales (colegios, polideportivos, centros cívicos) tienen mayor potencial de ahorro energético para invertir con fondos NextGen EU</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — datos IDAE disponibles</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field green">
+      <div class="field-label">El problema</div>
+      <div class="field-content">
+        España tiene miles de edificios públicos con certificaciones energéticas deficientes. Los fondos Next Generation EU tienen líneas específicas para rehabilitación. El problema es que los ayuntamientos no saben qué edificios priorizar y cómo calcular el ROI de intervenir en cada uno. El IGN publicó (agosto 2025) una herramienta de potencial solar por edificio — confirma que los datos están disponibles. No existe herramienta de priorización de rehabilitación integral.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — puntuación 13/20</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>IDAE – Registro de Certificados Energéticos:</strong> base de datos pública con eficiencia de edificios registrados. Descarga directa.</li>
+          <li><strong>Catastro:</strong> superficie, antigüedad, uso de cada inmueble. API abierta.</li>
+          <li><strong>AEMET:</strong> datos climáticos por zona. API abierta.</li>
+          <li><strong>Ministerio de Vivienda:</strong> inventario de edificios públicos. Parcialmente público.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">MVP</div>
+      <div class="field-content">
+        Modelo que cruza certificados energéticos + superficie/antigüedad (Catastro) + clima (AEMET) para generar un ranking de edificios por potencial de ahorro y ROI estimado de la rehabilitación. Dashboard exportable para técnicos municipales que trabajan con presupuestación NextGen.
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · GeoPandas · Regresión (consumo energético estimado como función de características del edificio) · Clustering para segmentar tipologías · Dash/Streamlit para dashboard de priorización</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     IDEAS OUT-OF-THE-BOX (15)
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<h2 style="margin-top:0">Ideas Out-of-the-Box (15)</h2>
+<p style="color:#555; font-size:14px; margin-bottom:24px;">Ideas poco convencionales, algunas aventureras, algunas inspiradas en papers académicos, algunas que nadie ha implementado en España. Para un equipo con ambición de impacto real.</p>
+
+<!-- ── OOB-01 ── -->
+<div class="idea-card" id="oob-01">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-01 · Predictor de Éxito Electoral de Políticas Públicas</h3>
+      <div class="subtitle">¿Qué inversiones públicas municipales tienen más impacto en la adhesión ciudadana? Análisis causal con datos electorales e inversión pública histórica</div>
+    </div>
+    <span class="badge badge-green">✅ Gap total — no existe en España</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Modelo que cruza datos de políticas públicas implementadas (presupuestos, inversiones, servicios creados) con resultados electorales municipales para identificar qué tipo de inversión genera más adhesión ciudadana en diferentes tipos de municipios. Útil para entender la responsividad democrática: ¿recompensan los ciudadanos las buenas políticas en las urnas?</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Gap en España — verificado</div>
+      <div class="field-content">
+        Existen agregadores de encuestas (Electocracia, PolitPro) y TFGs académicos sobre predicción electoral. Ninguno estudia la relación entre <strong>políticas públicas implementadas</strong> y resultados electorales municipales como producto. El CIS publica microdatos abiertos desde los años 80 que nadie ha usado para esto de forma productizada.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>Ministerio del Interior:</strong> resultados electorales municipales desde 1979. Abiertos y descargables.</li>
+          <li><strong>Portal Rendición de Cuentas:</strong> presupuestos y liquidaciones de ayuntamientos. Series desde 2010.</li>
+          <li><strong>INE:</strong> características socioeconómicas por municipio.</li>
+          <li><strong>CIS:</strong> microdatos de barómetros (opinión sobre gestión municipal). Abiertos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Riesgo / consideración</div>
+      <div class="field-content">Políticamente sensible. El pitch debe comunicar que el objetivo es estudiar la <em>responsividad democrática</em> (¿funciona la democracia local?), no asesorar a ningún partido. Cliente natural: think tanks, academias, Ministerio de Política Territorial.</div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Modelos de diferencia en diferencias (análisis causal) · Panel de datos (municipio × año) · Variables instrumentales si se quiere análisis causal robusto · Visualización geoespacial</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-02 ── -->
+<div class="idea-card" id="oob-02">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-02 · Detector de Gentrificación en Tiempo Real</h3>
+      <div class="subtitle">Índice de presión de desplazamiento por barrio que combina alquiler, tipo de comercio, renta y VUT para alertar antes de que el proceso sea irreversible</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Existe como investigación académica — producto comercial libre</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Índice trimestral de presión de desplazamiento por barrio combinando: evolución precio del alquiler (Ministerio de Vivienda + scraping), cambio en tipo de comercio local (IAE), variación renta media (IRPF por sección censal), llegada de nuevas licencias de actividad turística y VUT. El objetivo es detectar barrios en fase <em>temprana</em> de gentrificación antes de que el desplazamiento sea masivo.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — verificado mayo 2026</div>
+      <div class="field-content">
+        El CED-UAB publicó en 2025 un índice multidimensional para las 10 ciudades más pobladas con mapas interactivos (Censo 2011–2021). La UPM tiene trabajos similares. Son herramientas <strong>académicas retrospectivas</strong> — datos censales con periodicidad decenal. El producto comercial con actualización periódica orientado a técnicos municipales no existe.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        SERPAVI (precios alquiler) · IAE (actividades económicas por zona) · Atlas de Renta INE (sección censal) · Catastro · Registro VUT (desde julio 2025) · Scraping de precios inmobiliarios
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · GeoPandas · Índice compuesto ponderado · Series temporales por barrio · Folium/Kepler.gl para visualización · Posible clustering para detectar patrones</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-03 ── -->
+<div class="idea-card" id="oob-03">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-03 · Índice de Bienestar Territorial Municipal</h3>
+      <div class="subtitle">Score sintético de "calidad de vida" por municipio combinando salud, educación, acceso a servicios, medioambiente, seguridad y cohesión social — actualizable anualmente</div>
+    </div>
+    <span class="badge badge-green">✅ Gap como producto — INE solo tiene nivel CCAA</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Inspirado en el Better Life Index de la OCDE pero a nivel municipal español. El INE tiene el IMCV (Indicador Multidimensional de Calidad de Vida) solo a nivel de CCAA. No existe un índice sintético y actualizable para los 8.200 municipios que un técnico pueda consultar y comparar. La novedad sería usar ML para identificar qué variables predicen mejor el bienestar percibido vs objetivo.</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        INE (mortalidad, educación, renta, padrón) · Ministerio de Sanidad (esperanza de vida, hospitalizaciones) · MITMA (accesibilidad a servicios) · Red de Calidad del Aire · Ministerio del Interior (criminalidad). Todos públicos con APIs o descarga directa.
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Por qué importa</div>
+      <div class="field-content">Herramienta de política pública para asignación de recursos. Permite identificar qué municipios están mejorando en bienestar, cuáles deteriorándose, y en qué dimensiones. Alta probabilidad de cobertura mediática. Potencial de publicación académica. Cliente: Ministerio de Política Territorial, FEMP.</div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · PCA / Análisis Factorial para construcción del índice sintético · Ponderación con análisis de componentes principales o AHP · GeoPandas para visualización · Dashboard interactivo</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-04 ── -->
+<div class="idea-card" id="oob-04">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-04 · Simulador de Impacto de Políticas Fiscales Municipales</h3>
+      <div class="subtitle">¿Qué pasa si bajo el IBI un 10%? Modelo contrafactual de política fiscal local basado en datos históricos de municipios similares</div>
+    </div>
+    <span class="badge badge-green">✅ Gap total — muy original, sin precedente en España</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Herramienta que permite a técnicos municipales simular el impacto de cambios fiscales (variación del IBI, ICIO, tasa de basuras) sobre la recaudación, la actividad económica local y la distribución de carga fiscal. Usa modelos de elasticidad fiscal entrenados con datos históricos de variaciones reales en municipios similares. Existen papers académicos de elasticidad del IBI en España (Universidad de Granada, 2019) que dan la base teórica.</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — muy buenos</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>Hacienda Local:</strong> tipos impositivos del IBI por municipio, serie histórica. Abiertos.</li>
+          <li><strong>Portal Rendición de Cuentas:</strong> recaudación efectiva por municipio y concepto fiscal. Series desde 2010.</li>
+          <li><strong>INE:</strong> características socioeconómicas por municipio para controlar el modelo.</li>
+          <li><strong>MINHAC:</strong> estadísticas de tributación local.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Por qué es especialmente original</div>
+      <div class="field-content">Los municipios toman decisiones fiscales basándose en modelos lineales simples o criterios políticos. Un simulador basado en datos de municipios similares introduciría rigor empírico donde hoy hay intuición. Nadie ha construido esto para el caso español. Potencial de publicación en revistas de economía pública.</div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Panel de datos (municipio × año) · Modelos de diferencia en diferencias · Matching sintético (Synthetic Control Method) para estimación causal · Streamlit para interfaz de simulación interactiva</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-05 ── -->
+<div class="idea-card" id="oob-05">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-05 · Qué Inversión Pública Frena la Despoblación</h3>
+      <div class="subtitle">Análisis causal de la relación entre inversiones públicas (carreteras, escuelas, centros de salud, banda ancha) y evolución demográfica en municipios pequeños</div>
+    </div>
+    <span class="badge badge-green">✅ Gap total — alta relevancia política</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Modelo que analiza qué tipo de inversión pública tiene más impacto real en frenar la despoblación: ¿carreteras? ¿colegios? ¿centros de salud? ¿banda ancha? ¿polígonos industriales? España gasta miles de millones en programas anti-despoblación sin evidencia rigurosa de qué funciona. Este análisis informaría decisiones de inversión con millones de euros de impacto real.</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>INE – Padrón histórico:</strong> población por municipio desde 1996. Series largas para análisis causal.</li>
+          <li><strong>Ministerios de Transportes, Educación, Sanidad:</strong> inversión por municipio. Parcialmente públicos con series históricas.</li>
+          <li><strong>CNMC:</strong> registros de despliegue de fibra óptica por municipio.</li>
+          <li><strong>MITMA:</strong> inventario de carreteras y mejoras viales.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Impacto potencial</div>
+      <div class="field-content">Sería citado por el Ministerio para la Transición Ecológica (Comisionado contra la Despoblación), la FEMP, y la Federación de Municipios Rurales. Alta probabilidad de publicación en revistas de economía regional o ciencias políticas. Potencial de cobertura mediática en el debate sobre la España vaciada.</div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Panel de datos (municipio × año, 1996–2024) · Diferencia en diferencias · Variables instrumentales · Synthetic Control Method · Visualización en mapa de efecto por tipo de inversión</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-06 — DESCARTADA ── -->
+<div class="idea-card" id="oob-06" style="opacity:0.7;">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-06 · Asistente IA para Redacción de Pliegos</h3>
+      <div class="subtitle">LLM entrenado en el corpus de pliegos españoles para asistir a funcionarios en redactar contratos correctos</div>
+    </div>
+    <span class="badge badge-red">🔴 DESCARTADA — Gobierto ya lo tiene en producción</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field red">
+      <div class="field-label">Por qué se descarta</div>
+      <div class="field-content">
+        <strong>Gobierto Contratación</strong> tiene "Redactor" (IA para redacción de pliegos y memorias técnicas) ya en producción con clientes reales como Riba-roja de Túria. <strong>Tendios</strong> también tiene funcionalidad de asistencia en redacción. El mercado específico de asistente IA para pliegos está cubierto por dos actores españoles bien posicionados. Ver sección de descartadas para documentación completa.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-07 ── -->
+<div class="idea-card" id="oob-07">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-07 · Predictor de Litigiosidad Administrativa</h3>
+      <div class="subtitle">¿Qué actos administrativos tienen más probabilidad de acabar en recurso o juicio? Modelo para que la Administración revise resoluciones de alto riesgo antes de dictarlas</div>
+    </div>
+    <span class="badge badge-green">✅ Gap total — nicho "Administración como demandada" completamente vacío</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Modelo que predice qué tipos de resoluciones administrativas (sanciones, denegaciones de licencias, actos tributarios, adjudicaciones de contratos) tienen mayor probabilidad de ser recurridas ante los tribunales, y cuál sería el sentido probable del fallo basado en jurisprudencia. Las herramientas de IA jurídica existentes (Global IA Jurídica, Iberley) sirven a abogados privados. Nadie sirve a la Administración pública como parte demandada.</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Gap en España — verificado</div>
+      <div class="field-content">
+        Existen herramientas de jurisprudencia para abogados privados. No existe nada para la Administración como parte demandada que le ayude a mejorar la calidad de sus actos antes de dictarlos. El CGPJ publica estadísticas judiciales y el CENDOJ tiene la jurisprudencia disponible. El espacio del "interventor jurídico preventivo" está completamente libre.
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>CGPJ – Estadísticas judiciales:</strong> por tipo de asunto, sentido del fallo, órgano. Público.</li>
+          <li><strong>CENDOJ:</strong> base de datos de jurisprudencia del Poder Judicial. Texto completo de sentencias. Acceso limitado/costoso.</li>
+          <li><strong>Tribunal Económico-Administrativo Central:</strong> resoluciones publicadas en BOE. Público.</li>
+          <li><strong>Tribunales Administrativos de Contratación:</strong> resoluciones de recursos en PLACSP. Público.</li>
+          <li><strong>Reto:</strong> el acceso al texto completo de sentencias del CENDOJ tiene coste. Para el TFM se podría trabajar con las resoluciones del TEAC (gratuitas y bien estructuradas) como punto de partida.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · NLP (spaCy, BERT en español) · Clasificador de riesgo de recurso · RAG sobre jurisprudencia para explicar la predicción · FastAPI · Cliente natural: Abogacía del Estado, servicios jurídicos de ayuntamientos grandes</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-08 ── -->
+<div class="idea-card" id="oob-08">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-08 · Detector de Solares y Edificios Abandonados</h3>
+      <div class="subtitle">Computer Vision sobre imágenes satelitales Copernicus + Catastro para identificar suelo infrautilizado con potencial de vivienda asequible</div>
+    </div>
+    <span class="badge badge-green">✅ Gap confirmado — timing muy bueno (ordenanza Marbella abr-2026)</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Combinación de imágenes satelitales (Copernicus/Sentinel-2, gratuitas) y datos catastrales para identificar automáticamente solares vacíos, edificios abandonados y suelo infrautilizado en entornos urbanos. El modelo cruza con el Catastro para determinar el titular y el régimen urbanístico. Aplicación directa para construir el Registro Municipal de Solares que algunos ayuntamientos ya están legislando.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — verificado mayo 2026</div>
+      <div class="field-content">
+        Marbella aprobó en abril 2026 una ordenanza de Registro Municipal de Solares y Edificaciones Ruinosas. El Ministerio de Vivienda habla de catálogos de suelo pero sin herramienta automatizada. No existe ningún SaaS con Computer Vision sobre satélite + Catastro para esto. Timing perfecto: los ayuntamientos están siendo regulados para crear estos registros y no tienen herramienta automática.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — muy buenos y gratuitos</div>
+      <div class="field-content">
+        <ul>
+          <li><strong>Copernicus Sentinel-2 (ESA):</strong> imágenes multiespectrales gratuitas. Resolución 10m. Actualización cada 5 días. Permite detectar vegetación en solares, diferencias espectrales entre edificios habitados y abandonados.</li>
+          <li><strong>Catastro – API abierta:</strong> coordenadas, superficie, uso y antigüedad de cada parcela. Sin autenticación para datos básicos.</li>
+          <li><strong>Plan General de Ordenación Urbana:</strong> algunos municipios lo tienen en datos abiertos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Rasterio + GDAL para imágenes satelitales · SegFormer o DeepLab (modelos preentrenados con fine-tuning) · API Catastro para enriquecer detecciones · GeoPandas para cruce espacial · Folium para mapa de resultados · GPU para entrenamiento (Google Colab Pro o Kaggle)</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Por qué es diferente</div>
+      <div class="field-content">Es uno de los pocos proyectos que combina Computer Vision con datos geoespaciales — técnicamente rico y visualmente impresionante para la presentación del TFM. El TFM usaría Copernicus (gratuito) para entrenar un modelo de clasificación de estado de parcelas (abandonado/activo/en construcción) y Catastro para identificar al titular.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-09 ── -->
+<div class="idea-card" id="oob-09">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-09 · Auditor de Brechas de Género en Gasto Público</h3>
+      <div class="subtitle">NLP + análisis presupuestario para medir en qué medida el gasto público beneficia por igual a hombres y mujeres — mandato legal incumplido</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Proceso manual existe — herramienta automatizada no existe</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Herramienta que analiza el presupuesto público a nivel de partida y programa para estimar el impacto de género del gasto. La Ley Orgánica 3/2007 obliga a los presupuestos públicos a incluir informes de impacto de género, pero casi nadie los hace con datos reales. Andalucía fue pionera entre 2013–2023 pero de forma totalmente manual.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — verificado mayo 2026</div>
+      <div class="field-content">
+        El Tribunal de Cuentas reconoció a Andalucía como pionera en auditorías de presupuesto con perspectiva de género (2025), pero señala que <strong>ninguna CCAA llevó a cabo auditorías independientes en 2024</strong>. El proceso es manual, discontinuo y sin metodología estándar. La herramienta automatizada que lo haga escalable no existe en España.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        PGE con memorias de programas presupuestarios (Ministerio de Hacienda, abiertos) · Estadísticas de beneficiarios de políticas públicas por sexo (INE, Ministerio de Igualdad) · Datos de empleo público desagregados (CSIF, FUNCAS) · Planes de igualdad de administraciones públicas (algunos en portales de transparencia)
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · NLP (clasificación de programas presupuestarios por impacto de género) · Análisis estadístico de beneficiarios por sexo · Dashboard de reporting por administración · Cliente natural: Ministerio de Igualdad, Institutos de la Mujer autonómicos</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-10 ── -->
+<div class="idea-card" id="oob-10">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-10 · Gemelo Digital de Tráfico para Simulación de Obras</h3>
+      <div class="subtitle">Simulador de impacto de cortes de calle y obras en el flujo de tráfico para municipios medianos, usando SUMO (open source) + datos reales</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Existe para ciudades grandes — municipios medianos sin solución</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Integración del simulador de tráfico SUMO (open source, usado por BMW, VW y gobiernos europeos) con datos reales de tráfico de la DGT y OSM para crear un simulador simplificado de ciudades medianas. Permite al técnico municipal simular el impacto de un corte de calle o una obra antes de conceder el permiso.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — verificado mayo 2026</div>
+      <div class="field-content">
+        Madrid tiene Gemelo Digital oficial (estrategia 2023–2027). Las Rozas tiene plataforma con 50 capas de datos (octubre 2025). Existen TFGs de la UPM con SUMO+FIWARE. El espacio para grandes ciudades está cubierto por grandes empresas (Indra, Siemens, IBM). El nicho de <strong>municipios medianos (30k–500k hab.) sin presupuesto smart city</strong> está libre.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        OpenStreetMap (red vial con velocidades) · MITMA – Aforos de tráfico por tramo (público) · SUMO como motor de simulación (gratuito, mantenido por DLR alemán) · DGT datos de tráfico parcialmente abiertos
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · SUMO (simulador tráfico, open source) · OSMnx para importar red vial · Interfaz web sencilla para que el técnico municipal defina el corte y vea el impacto estimado</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-11 ── -->
+<div class="idea-card" id="oob-11">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-11 · Índice de Calidad Normativa Municipal</h3>
+      <div class="subtitle">NLP sobre el corpus de ordenanzas municipales para medir antigüedad, referencias a leyes derogadas, complejidad léxica y comparación entre municipios</div>
+    </div>
+    <span class="badge badge-green">✅ Gap total — solo existe como paper académico</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Sistema NLP que analiza el corpus de ordenanzas municipales (textos públicos) para medir: antigüedad media de la normativa, coherencia interna, referencias a leyes derogadas, complejidad léxica (proxy de accesibilidad ciudadana) y comparación con municipios similares. Genera un "índice de modernización normativa" por municipio.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — verificado mayo 2026</div>
+      <div class="field-content">
+        Existe un paper en el Anuario de Derecho Municipal (2024) sobre análisis de impacto normativo de ordenanzas como herramienta de mejora regulatoria. Es exclusivamente académico. No existe ningún producto que analice el corpus completo de ordenanzas con NLP. El BOE y los BOPROV publican todos los textos de ordenanzas de forma pública.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — muy accesibles</div>
+      <div class="field-content">
+        Ordenanzas municipales en BOE, BOPROVs y sedes electrónicas (textos públicos y descargables) · Base de datos del INAP de normativa local · BOE con fechas de aprobación para calcular antigüedad · Texto de las leyes referenciadas para detectar si están derogadas
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Scrapy para recopilación de ordenanzas · spaCy + BERT en español para NLP · Índice compuesto ponderado · Comparativa entre municipios similares · Dashboard de ranking</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Por qué es diferente</div>
+      <div class="field-content">Nadie sabe cuántos municipios están aplicando normativa desfasada de hace 30 años sin saberlo. Este análisis podría revelar que miles de municipios tienen ordenanzas que referencian leyes derogadas — un hallazgo con alta probabilidad de cobertura mediática y de interés para el INAP (Instituto Nacional de Administración Pública).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-12 ── -->
+<div class="idea-card" id="oob-12">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-12 · Correlación entre Inversión Cultural y Desarrollo Económico</h3>
+      <div class="subtitle">¿Las ciudades que más invierten en cultura tienen mejor desarrollo económico? Análisis causal a escala municipal con datos históricos</div>
+    </div>
+    <span class="badge badge-green">✅ Gap total — potencial académico alto</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Análisis de panel de datos municipales que intenta estimar el impacto causal de la inversión en cultura sobre el desarrollo económico local (empleo, renta, turismo, retención de talento). Inspirado en la "Creative City Theory" de Richard Florida pero con datos españoles y metodología rigurosa. El debate sobre si la inversión cultural es "gasto" o "inversión" es político y carece de evidencia empírica robusta en España.</div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        Ministerio de Cultura – Estadísticas culturales por municipio (abiertos) · Encuesta de Hábitos Culturales INE · Portal de Rendición de Cuentas – partidas de cultura y deporte por municipio · INE – renta y empleo por municipio. Series de al menos 10 años para análisis causal.
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-label">Por qué importa</div>
+      <div class="field-content">Sería citado por el Ministerio de Cultura, la SGAE y asociaciones de gestores culturales. Alta probabilidad de publicación en revistas de economía regional. Impacto político real: informar el debate sobre recortes en cultura en municipios en crisis financiera.
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Panel de datos (municipio × año) · Diferencia en diferencias · Matching de municipios similares · Variables de control: tamaño, renta, sector económico predominante</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-13 — DESCARTADA ── -->
+<div class="idea-card" id="oob-13" style="opacity:0.7;">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-13 · Predictor de Siniestralidad Vial por Tramo</h3>
+      <div class="subtitle">ML sobre accidentes históricos + características viales + clima para identificar tramos de alto riesgo</div>
+    </div>
+    <span class="badge badge-red">🔴 DESCARTADA — DGT 3.0 ya lo hace internamente</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field red">
+      <div class="field-label">Por qué se descarta</div>
+      <div class="field-content">
+        La DGT tiene la plataforma DGT 3.0 con casos de uso activos de predicción de siniestralidad en tramos. El Corredor Mediterráneo tiene sistemas C-ITS con análisis de tramos peligrosos. La DGT está desplegando 122 nuevos radares con criterio de datos en 2025 y tiene el Observatorio Nacional de Seguridad Vial con análisis de tramos. El espacio está cerrado por el propio actor institucional con más datos y recursos. Ver sección de descartadas.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-14 ── -->
+<div class="idea-card" id="oob-14">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-14 · Mapa de Vulnerabilidad Climática Municipal Integrado</h3>
+      <div class="subtitle">Índice que combina exposición a riesgos (inundaciones, calor, sequía) + vulnerabilidad social + capacidad de respuesta municipal — post-DANA Valencia</div>
+    </div>
+    <span class="badge badge-green">✅ Gap de integración confirmado — post-DANA urgencia política</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Índice de vulnerabilidad climática por municipio combinando: (1) exposición a riesgos (zonas inundables SNCZI, episodios de calor extremo AEMET, índice de sequía), (2) características de la población vulnerable (% mayores de 75, % sin vehículo, renta baja — INE), y (3) capacidad de respuesta institucional (presencia de bomberos, protección civil, recursos sanitarios de emergencia). Post-DANA Valencia 2024, este tema tiene urgencia política máxima.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Gap en España — verificado mayo 2026</div>
+      <div class="field-content">
+        Existen muchos mapas de riesgo por separado: SNCZI (inundaciones), AEMET (calor), Ihobe para País Vasco. La plataforma AdapteCCa del MITECO es un repositorio de informes, no una herramienta analítica accionable. No existe un índice integrado y accionable que combine exposición + vulnerabilidad social + capacidad de respuesta por municipio. El gobierno busca activamente este tipo de herramienta tras la DANA.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles — todos públicos y gratuitos</div>
+      <div class="field-content">
+        SNCZI – Sistema Nacional Cartografía Zonas Inundables (MITECO, abierto) · AEMET – API climática con episodios extremos históricos · INE – demografía vulnerable (% mayores, % sin vehículo, renta) · Copernicus Earth Observation (imágenes y datos satelitales, gratuito) · Ministerio del Interior – recursos de emergencia por municipio
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · GeoPandas · Índice compuesto ponderado (3 dimensiones) · Copernicus para imágenes de exposición a riesgos · Folium/Kepler.gl para visualización · Cliente natural: Plan Nacional de Adaptación al Cambio Climático (MITECO)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── OOB-15 ── -->
+<div class="idea-card" id="oob-15">
+  <div class="idea-card-header">
+    <div>
+      <h3>OOB-15 · Contaminación Lumínica y Acústica Urbana con Satélite</h3>
+      <div class="subtitle">Análisis de datos satelitales nocturnos NASA VIIRS + denuncias ciudadanas para mapear contaminación lumínica y acústica por barrio y franja horaria</div>
+    </div>
+    <span class="badge badge-amber">⚠️ Investigación científica española activa — producto comercial libre</span>
+  </div>
+  <div class="idea-card-body">
+    <div class="field">
+      <div class="field-label">Qué es</div>
+      <div class="field-content">Uso de imágenes satelitales nocturnas (NASA VIIRS, gratuitas) combinadas con datos de denuncias ciudadanas por ruido (algunos ayuntamientos publican) y horarios de establecimientos de ocio (datos IAE + Google Maps API) para generar mapas de contaminación lumínica y acústica por barrio y franja horaria.</div>
+    </div>
+    <div class="field blue">
+      <div class="field-label">Estado en España — verificado mayo 2026</div>
+      <div class="field-content">
+        El IEEC publicó en septiembre 2025 el primer mapa global de contaminación lumínica de Cataluña con modelización avanzada (combinando inventario público del alumbrado con satélite). El IAC tiene mapas VIIRS calibrados. Hay investigación científica española seria. <strong>No existe ningún SaaS comercial</strong> orientado a ayuntamientos para gestión y optimización continua del alumbrado con datos satelitales.
+      </div>
+    </div>
+    <div class="field green">
+      <div class="field-label">Datos disponibles</div>
+      <div class="field-content">
+        NASA VIIRS (imágenes nocturnas mensuales, gratuitas, resolución ~750m) · Datos de denuncias por ruido del Ayuntamiento de Madrid (datos abiertos) · Horarios de locales (IAE + scraping) · IDAE – inventario de alumbrado público (parcialmente público)
+      </div>
+    </div>
+    <div class="field amber">
+      <div class="field-label">Stack técnico</div>
+      <div class="field-content">Python · Rasterio para imágenes VIIRS · Geopandas para cruce espacial · Series temporales de brillo nocturno por barrio · Correlación con datos de ruido y actividad nocturna · Visualización cartográfica</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Riesgo</div>
+      <div class="field-content">La resolución de VIIRS (~750m) puede ser insuficiente para análisis a nivel de calle. El IEEC usa fotómetros terrestres para calibrar. Para el TFM se podría combinar VIIRS con datos de denuncias del Ayuntamiento de Madrid (que sí son a nivel de calle). Posible colaboración con investigadores del IEEC.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     IDEAS DESCARTADAS
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<h2 style="margin-top:0">Ideas Descartadas</h2>
+<p style="color:#555; font-size:14px; margin-bottom:24px;">Estas ideas se exploraron con detalle y se descartaron por razones concretas. Se documentan aquí para evitar que el equipo las revisit sin información nueva que cambie el análisis.</p>
+
+<div class="discard-card" id="desc-incendios">
+  <div class="discard-header">
+    <h4>❌ Predicción de Incendios Forestales</h4>
+    <span class="badge badge-red" style="font-size:11px;">Mercado saturado — competencia institucional y privada consolidada</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li><strong>Proyecto Arbaria (MITECO + MAPA):</strong> ML propio del Ministerio sobre AWS con 600.000 registros de incendios desde 1968. Ya está desplegado y financiado por el gobierno central.</li>
+      <li><strong>Mitiga Solutions (startup española + Microsoft):</strong> SaaS de predicción y gestión de catástrofes climáticas incluyendo incendios. Empresa consolidada con respaldo de Microsoft y producto maduro.</li>
+      <li><strong>Proyectos europeos (SILVANUS, GAIA, S2IGI, Horizonte):</strong> financiación de millones de euros. Satélite, LiDAR, IA, gemelos digitales. Imposible competir.</li>
+      <li><strong>ACOT Systems / Firecatch (startup española):</strong> app en App Store con cámaras + IA + alertas en tiempo real para equipos de emergencia.</li>
+    </ul>
+    <p><strong>Conclusión:</strong> Un equipo de 6 personas en 6 meses no puede competir con el Ministerio, empresas con respaldo de Microsoft y proyectos europeos de millones. Descartada definitivamente.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-alquiler">
+  <div class="discard-header">
+    <h4>❌ Monitor de Precios de Alquiler Municipal</h4>
+    <span class="badge badge-amber" style="font-size:11px;">Mercado parcialmente cubierto — diferenciación difícil</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li><strong>SERPAVI (Ministerio de Vivienda):</strong> mapa interactivo con precios de referencia por sección censal. Datos tributarios + catastro. Existe pero es estático y desactualizado.</li>
+      <li><strong>Idealista / Fotocasa:</strong> índices históricos de precios. Muy conocidos, sin predicción ni API pública.</li>
+      <li><strong>Agència Habitatge Catalunya:</strong> índice para zonas tensionadas. Solo Cataluña, sin predicción.</li>
+    </ul>
+    <p><strong>Por qué no merece la pena vs otras opciones:</strong> El gap existe (capa predictiva + alertas + orientación para técnico municipal) pero es difícil de monetizar y de diferenciar de Idealista y SERPAVI. Comparado con ideas con datos igualmente buenos y gap más limpio (contratación pública, salud financiera), el retorno es peor. Si el equipo tuviera contacto directo con un ayuntamiento o Consejería de Vivienda, podría revisarse.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-semaforos">
+  <div class="discard-header">
+    <h4>❌ Optimización de Semáforos y Tráfico Urbano</h4>
+    <span class="badge badge-red" style="font-size:11px;">Mercado maduro — requiere hardware, sin espacio software-only</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>Miovision, Econolite, Surtrac (Pittsburgh), Siemens Mobility son empresas consolidadas con décadas de datos y hardware propio.</li>
+      <li>Barcelona tiene sistema IA propio integrado en su infraestructura urbana.</li>
+      <li>El mercado requiere integración con hardware (cámaras, sensores IoT) que hace inviable una solución software-only competitiva para un TFM.</li>
+    </ul>
+    <p><strong>Ángulo que podría sobrevivir (pero no recomendado):</strong> Planificación offline (¿dónde poner un paso de peatones nuevo? ¿cómo rediseñar un cruce?) usando datos de accidentes, velocidad media y OSM — sin hardware. Pero el cliente es difícil de identificar y el mercado de smart traffic es muy competido.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-economia-sumergida">
+  <div class="discard-header">
+    <h4>❌ Mapa de Calor de Economía Sumergida Municipal</h4>
+    <span class="badge badge-red" style="font-size:11px;">Sin variable objetivo — imposible entrenar modelo supervisado</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>La economía sumergida es, por definición, no observada. No existe un dataset con la "verdad" de qué zonas tienen más economía informal.</li>
+      <li>Sin variable objetivo no se puede entrenar un modelo supervisado. Solo se podría hacer clustering de "zonas sospechosas" sin poder validar la precisión — lo que hace el trabajo técnicamente muy débil para un TFM de Data Science.</li>
+      <li>Cliente difícil: la AEAT es muy institucional y lenta para adoptar herramientas externas. Políticamente sensible.</li>
+      <li>Incluso GESTHA (sindicato de técnicos de Hacienda) reconoce que la AEAT "no tiene metodología oficial para medir la economía sumergida a nivel territorial".</li>
+    </ul>
+    <p><strong>Conclusión:</strong> El problema es enorme en cifras (17–24% del PIB) pero irresoluble metodológicamente sin datos que no existen. Descartada definitivamente.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-abandono-escolar">
+  <div class="discard-header">
+    <h4>❌ Detector de Abandono Escolar Temprano (predicción individual)</h4>
+    <span class="badge badge-red" style="font-size:11px;">El dato clave es estrictamente confidencial</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>El modelo individual (predecir qué alumno concreto va a abandonar) requiere datos de notas, asistencia y situación familiar. Están en los sistemas de gestión educativa de las CCAA (Séneca en Andalucía, ITACA en Valencia, Raíces en Madrid) y son estrictamente confidenciales.</li>
+      <li>Sin convenio con una Consejería de Educación (muy difícil en 6 meses para un TFM), el trabajo se reduce a datos sintéticos — lo que no es convincente para demostrar viabilidad real.</li>
+      <li>El problema sí es real (España 2ª tasa más alta de la UE, 13%). Si el equipo consiguiera un convenio con una CCAA, podría revisarse como uno de los proyectos más impactantes.</li>
+    </ul>
+    <p><strong>Versión viable pero limitada:</strong> modelo a nivel de centro escolar o barrio (no de alumno individual), usando estadísticas públicas del Ministerio de Educación. Técnicamente menos rico y menos útil para un orientador.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-redes-sociales">
+  <div class="discard-header">
+    <h4>❌ Análisis de Sentimiento Ciudadano en Redes Sociales</h4>
+    <span class="badge badge-red" style="font-size:11px;">Twitter/X API de pago y muy cara desde 2023</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>Desde la adquisición de Twitter por Elon Musk, el acceso a la API es de pago y caro (100$/mes básico, miles de dólares para volumen histórico).</li>
+      <li>Sin acceso a datos históricos de Twitter de calidad, el modelo tiene poco entrenamiento y baja cobertura temporal.</li>
+      <li>Zencity (Israel) ya hace esto para 300+ ciudades con mucho más presupuesto, datos históricos y partnerships institucionales.</li>
+    </ul>
+    <p><strong>Alternativa que no se descarta del todo:</strong> usar datos de denuncias ciudadanas de portales municipales (el Ayuntamiento de Madrid los publica en abierto) en lugar de redes sociales. Pero eso reduce el alcance y la riqueza del análisis.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-vial">
+  <div class="discard-header">
+    <h4>❌ Optimizador de Mantenimiento Vial</h4>
+    <span class="badge badge-red" style="font-size:11px;">El dato central (estado del pavimento) no es público</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>El IRI (Índice de Regularidad Internacional) y el estado real del firme por km de carretera es el dato más importante del modelo. Las diputaciones lo tienen en sistemas internos no públicos.</li>
+      <li>Sin ese dato, el modelo sería una estimación muy ruidosa basada en antigüedad + tráfico + clima — demasiada incertidumbre para ser defendible en el TFM.</li>
+      <li>La alternativa (inferir el estado del pavimento desde expedientes de mantenimiento en PLACSP) es indirecta y poco precisa.</li>
+    </ul>
+    <p><strong>Potencialmente revisable:</strong> si el equipo tiene contacto con una diputación provincial que ceda sus datos de estado de firmes, este proyecto se convierte en uno de los más originales y con gap claro. Sin datos internos de la diputación, no merece la pena.</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-urgencias">
+  <div class="discard-header">
+    <h4>❌ Predictor de Saturación de Urgencias Hospitalarias</h4>
+    <span class="badge badge-red" style="font-size:11px;">El CMBD requiere aprobación de Comité de Ética — inaccesible en 6 meses</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>El Conjunto Mínimo Básico de Datos (CMBD) que contiene los datos históricos de urgencias hospitalarias por hospital y día es el dato central del modelo y tiene acceso muy restringido.</li>
+      <li>Requiere aprobación del Comité de Ética de la Investigación de la CCAA correspondiente — proceso de meses.</li>
+      <li>Sin acceso institucional previo, inviable en 6 meses. El NHS (UK) usa modelos así con acceso privilegiado a sus datos internos.</li>
+    </ul>
+    <p><strong>Si el equipo tiene contacto en una Consejería de Sanidad</strong> que pueda facilitar el acceso, este proyecto es de los más impactantes (especialmente post-pandemia y con el debate sobre colapso de urgencias activo).</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-pliegos-ia">
+  <div class="discard-header">
+    <h4>❌ Asistente IA para Redacción de Pliegos (OOB-06)</h4>
+    <span class="badge badge-red" style="font-size:11px;">Gobierto ya lo tiene en producción con clientes reales</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li><strong>Gobierto Contratación</strong> lanzó "Redactor" (IA para redacción de pliegos y memorias técnicas) con clientes reales como Riba-roja de Túria y otros ayuntamientos. Ya en producción.</li>
+      <li><strong>Tendios</strong> también tiene funcionalidad de asistencia en redacción de documentación contractual.</li>
+      <li>Diferenciarse de dos actores españoles ya establecidos y con clientes en un espacio muy específico es muy difícil para un TFM de 6 meses.</li>
+    </ul>
+    <p><strong>Lo que podría sobrevivir:</strong> no la redacción de pliegos (ya cubierta) sino la detección de cláusulas en pliegos que históricamente han generado recursos o estimaciones por los Tribunales Administrativos de Contratación. Ese ángulo específico podría complementar la idea 01 (anomalías en contratación).</p>
+  </div>
+</div>
+
+<div class="discard-card" id="desc-siniestralidad">
+  <div class="discard-header">
+    <h4>❌ Predictor de Siniestralidad Vial por Tramo (OOB-13)</h4>
+    <span class="badge badge-red" style="font-size:11px;">DGT 3.0 ya lo hace — espacio cerrado por el actor institucional</span>
+  </div>
+  <div class="discard-body">
+    <p><strong>Por qué se descarta:</strong></p>
+    <ul>
+      <li>La DGT tiene la plataforma DGT 3.0 con casos de uso activos de detección de tramos peligrosos y predicción de siniestralidad.</li>
+      <li>El Corredor Mediterráneo tiene sistemas C-ITS con sensores y análisis de tramos.</li>
+      <li>El Observatorio Nacional de Seguridad Vial publica análisis de tramos peligrosos con datos propios.</li>
+      <li>La DGT está desplegando 122 nuevos radares con criterio de datos en 2025 — evidencia de que resuelven esto internamente.</li>
+    </ul>
+    <p><strong>Conclusión:</strong> El actor con más datos (la DGT) ya resuelve este problema internamente. No hay espacio para una startup externa en este espacio específico. Descartada definitivamente.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div style="background:#f5f5f5; padding:20px; border-radius:4px; border:1px solid #ddd; margin-top:32px;">
+  <h3 style="margin-bottom:8px;">Estado del documento</h3>
+  <p style="font-size:13px; color:#555; margin-bottom:8px;">
+    <strong>Última actualización:</strong> Mayo 2026 · <strong>Fase del proyecto:</strong> Exploración y selección de idea<br>
+    <strong>Ideas principales analizadas:</strong> 12 · <strong>Ideas OOB:</strong> 15 · <strong>Ideas descartadas:</strong> 10<br>
+    <strong>Próximo paso:</strong> Selección de 1–2 ideas para desarrollar como propuesta de TFM
+  </p>
+  <p style="font-size:12px; color:#777;">
+    Todas las cifras citadas provienen de fuentes oficiales verificadas: INE, Ministerio de Hacienda, OIReScon, SEPE, Funcas, Tribunal de Cuentas, FEMP, CGPJ, Ministerio de Consumo, Ministerio de Vivienda. Los casos de éxito mundiales son empresas y programas reales documentados públicamente. La verificación de existencia de competencia en España se realizó mediante búsquedas web en mayo de 2026.
+  </p>
+</div>
+
+</main>
+</body>
+</html>
